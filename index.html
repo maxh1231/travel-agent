@@ -5,22 +5,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Agent</title>
-    
-    <link rel="stylesheet" href="./assets/css/app.css">
+
+    <!-- CSS -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/app.css" />
+
+    <title>Travel Agent</title>
     
 </head>
 
 <body>
+    <!-- NavBar -->
+    <navbar>
+        <p>Travel Agent</p>
+    </navbar>
 
-    <header>
-        <h1>Travel Agent</h1>
-    </header>
+    <!-- Main Body -->
+    <main>
 
-    <input type="text">
-    <button>Submit</button>
+        <!-- Top Part of the Main Page -->
+        <!-- Search Input -->
+        <div class="search-area">
+            <div class="card">
+                <h3 class="card-header text-uppercase">Search Your Paradise</h3>
+                <form id="user-form" class="card-body">
+                    <label class="form-label" for="location">Location</label>
+                    <input name="location" id="location" type="text" autofocus="true" class="form-input" />
+                    <button type="submit" class="btn">To the Journey</button>
+                </form>
+            </div>
+        </div>
 
+        <!-- LOwer Part of the Main Page --> <!-- Just In case -->
+        <!-- Display Search Result -->
+        <div class="search-result-display">
+            <!-- Display Hotel Result on the Left -->
+            <div id="hotel-results" class="col-6"></div>
+            <!-- Display Weather Result on the Right -->
+            <div id="weather-results" class="col-6"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <h2>Hardworking Product From Group 2</h2>
+        <div>
+            &copy; Brett Howard, Jeffrey Banh, Max Humpherys, Calvin Yan
+        </div>
+    </footer>
+
+
+
+    <!-- JS -->
+
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
