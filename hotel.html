@@ -5,30 +5,95 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Agent</title>
+
+    <!-- CSS -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/app.css">
+    <link rel="stylesheet" href="./assets/css/app.css" />
+
+    <title>Travel Agent - Search Result</title>
+    
 </head>
 
 <body>
-
-    <header id="header">
-        <h1>
-            Travel Agent
-        </h1>
+    <!-- NavBar -->
+    <header>
+        <p id="PageTitle">Travel Agent - Search Result</p>
     </header>
 
-    <section id="hero">
-        <div id="hotel-container">
-            Hotels
+    <!-- Main Body -->
+    <main>
+
+        <!-- Display Search Result -->
+        <section class="search-result-display">
+            <!-- Display Hotel Result on the Left -->
+            <div id="hotel-results-container" class="col-6">
+                <!-- First Hotel -->
+                <article class="hotel-result">
+                    <img src="" alt="Hotel" />
+                    <div class="hotel-detail">
+                      <h3 class="hotel-name">The Overlook Hotel</h3>
+                      <h4 class="hotel-price">Your life</h4>
+                      <h4 class="hotel-rating">1 star</h4>
+                      <p class="hotel-address">
+                        333 E Wonderview Ave, Estes Park, CO 80517
+                      </p>
+                    </div>
+                </article>
+
+                <!-- Second Hotel -->
+                <article class="hotel-result">
+                    <img src="" alt="Another Hotel" />
+                    <div class="hotel-detail">
+                      <h3 class="hotel-name">Bates Motel</h3>
+                      <h4 class="hotel-price">Your life Also</h4>
+                      <h4 class="hotel-rating">0 star</h4>
+                      <p class="hotel-address">
+                        Fairvale, CA
+                      </p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Display Weather Result on the Right -->
+            <div id="weather-results" class="col-6">
+                <!-- First Day Weather -->
+                <article class="weather-result">
+                    <img src="" alt="Weather Picture/Icon" />
+                    <div class="weather-detail">
+                      <h3 class="weather-date">10/18</h3>
+                      <h4 class="temperature-H">17</h4>
+                      <h4 class="temperature-L">2</h4>
+                    </div>
+                </article>
+
+                <!-- Second Day Weather -->
+                <article class="weather-result">
+                    <img src="" alt="Weather Picture/Icon" />
+                    <div class="weather-detail">
+                      <h3 class="weather-date">10/19</h3>
+                      <h4 class="temperature-H">17</h4>
+                      <h4 class="temperature-L">2</h4>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <h2>Hardworking Product From Group 2</h2>
+        <div>
+            &copy; Brett Howard, Jeffrey Banh, Max Humpherys, Calvin Yan
         </div>
-        <div id="weather-container">
-            Weather
-        </div>
-    </section>
+    </footer>
 
 
+
+    <!-- JS -->
+
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
