@@ -9,7 +9,7 @@
     <!-- CSS -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/app.css" />
+    <link rel="stylesheet" href="assets/css/app.css" />
 
     <title>Travel Agent</title>
     
@@ -17,9 +17,11 @@
 
 <body>
     <!-- NavBar -->
-    <navbar>
-        <p>Travel Agent</p>
-    </navbar>
+    <header>
+        <navbar>
+            <h1 class="header-title">Travel Agent</h1>
+        </navbar>
+    </header>
 
     <!-- Main Body -->
     <main>
@@ -32,7 +34,7 @@
                 <form id="user-form" class="card-body">
                     <label class="form-label" for="location">Location</label>
                     <input name="location" id="location" type="text" autofocus="true" class="form-input" />
-                    <button type="submit" class="btn">To the Journey</button>
+                    <button type="submit" class="btn" id="searchBtn">To the Journey</button>
                 </form>
             </div>
         </div>
