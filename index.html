@@ -9,7 +9,7 @@
     <!-- CSS -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="assets/css/app.css" />
+    <link rel="stylesheet" href="./assets/css/app.css" />
 
     <title>Travel Agent</title>
     
@@ -19,39 +19,110 @@
     <!-- NavBar -->
     <header>
         <navbar>
-            <h1 class="header-title">Travel Agent</h1>
+            <h1>Travel Agent</h1>
+
+            <ul class="navbar-List">
+                <li>
+                    <a href="#search-engine">Search</a>
+                </li>
+                <li>
+                    <a href="#previous-search">Previous Searches</a>
+                </li>
+            </ul>
         </navbar>
     </header>
 
     <!-- Main Body -->
     <main>
 
+        <hero>
+            <!-- Page Title -->
+            <h2 class="page-Title">
+                Hotel and Weather Search Engine
+            </h2>
+            <h3 class="page-Description">
+                This search engine will help you to search available hotels and forecast weather for your trip.
+            </h3>
+        </hero>
+
         <!-- Top Part of the Main Page -->
         <!-- Search Input -->
-        <div class="search-area">
+        <div id="search-engine" class="search-area">
             <div class="card">
-                <h3 class="card-header text-uppercase">Search Your Paradise</h3>
+                <h2 class="card-header text-uppercase">Search Your Paradise</h2>
                 <form id="user-form" class="card-body">
-                    <label class="form-label" for="location">Location</label>
-                    <input name="location" id="location" type="text" autofocus="true" class="form-input" />
-                    <button type="submit" class="btn" id="searchBtn">To the Journey</button>
+                    <div class="input-group">
+                        <label class="form-label" for="location">Location</label>
+                        <input name="location" id="location" type="text" autofocus="true" class="form-input" placeholder="Paradise" />
+                    </div>
+                    <div class="input-group">
+                        <label class="form-label" for="starting-day">Start Day</label>
+                        <input name="starting-day" id="starting-day" type="text" autofocus="true" class="form-input" placeholder="MM/DD/YYYY" />
+                    </div>
+                    <div class="input-group">
+                        <label class="form-label" for="ending-day">End Day</label>
+                        <input name="ending-day" id="ending-day" type="text" autofocus="true" class="form-input" placeholder="MM/DD/YYYY" />
+                    </div>
+                    <div class="input-group">
+                        <button type="submit" class="btn" id="searchBtn">To the Journey</button>
+                    </div>
                 </form>
             </div>
         </div>
 
-        <!-- LOwer Part of the Main Page --> <!-- Just In case -->
-        <!-- Display Search Result -->
-        <div class="search-result-display">
-            <!-- Display Hotel Result on the Left -->
-            <div id="hotel-results" class="col-6"></div>
-            <!-- Display Weather Result on the Right -->
-            <div id="weather-results" class="col-6"></div>
+        <!-- Lower Part of the Main Page -->
+        <!-- Display Previous Search -->
+        <div id="previous-search" class="previous-search-display">
+            <h2 id="previous-search-title">
+                Previous Searches
+            </h2>
+            <div class="PSD-container">
+                <!-- First Previous Search -->
+                <article id="PSD-01" class="PSD-item">
+                    <img class="PSD-picture" src="" alt="destination-thumbnail" /> <!-- TBD -->
+                    <div class="PSD-detail">
+                        <div class="PSD-destination">
+                            <h3 class="display-label">Location : </h3>
+                            <h3 class="display-answer">Salt Lake City</h3>
+                        </div>
+                        <div class="PSD-starting-day">
+                            <h3 class="display-label">Start Date : </h3>
+                            <h3 class="display-answer">10/18/2021</h3>
+                        </div>
+                        <div class="PSD-ending-day">
+                            <h3 class="display-label">End Date : </h3>
+                            <h3 class="display-answer">10/24/2021</h3>
+                        </div>
+                    </div>
+                    <button type="button" class="btn PSD-button">Search again</button>
+                </article>
+
+                <!-- Second Previous Search -->
+                <article id="PSD-02" class="PSD-item">
+                    <img class="PSD-picture" src="" alt="destination-thumbnail" /> <!-- TBD -->
+                    <div class="PSD-detail">
+                        <div class="PSD-destination">
+                            <h3 class="display-label">Location : </h3>
+                            <h3 class="display-answer">Los Angeles</h3>
+                        </div>
+                        <div class="PSD-starting-day">
+                            <h3 class="display-label">Start Date : </h3>
+                            <h3 class="display-answer">10/25/2021</h3>
+                        </div>
+                        <div class="PSD-ending-day">
+                            <h3 class="display-label">End Date : </h3>
+                            <h3 class="display-answer">10/31/2021</h3>
+                        </div>
+                    </div>
+                    <button type="button" class="btn PSD-button">Search again</button>
+                </article>
+            </div>
         </div>
     </main>
 
     <!-- Footer -->
     <footer>
-        <h2>Hardworking Product From Group 2</h2>
+        <h3>Hardworking Product From Group 2</h3>
         <div>
             &copy; Brett Howard, Jeffrey Banh, Max Humpherys, Calvin Yan
         </div>
