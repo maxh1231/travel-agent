@@ -1,32 +1,27 @@
-
-
-#header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.header-title {
+	text-align: center;
+	font-size: 2rem;
 }
 
-#hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1200px;
-    margin: auto;
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 600px;
 }
 
-#hotel-container {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    justify-content: center; 
-    text-align: center;
+.card-header {
+	justify-content: center;
+	font-size: 1.5rem;
+	margin-bottom: 20px;
 }
 
-#weather-container {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    justify-content: center;
-    text-align: center;
+.card {
+	display: flex;
+	flex-direction: column;
+}
 
+footer {
+	display: flex;
+	justify-content: center;
 }
