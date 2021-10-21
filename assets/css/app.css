@@ -6,11 +6,12 @@
     --fifth-color: #ffb703;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 header {
@@ -24,7 +25,6 @@ navbar {
     align-items: center;
     color: var(--second-color);
     background-color: var(--first-color);
-    font-family: 'Crimson Text', serif;
 }
 navbar h1 {
     font-size: 50px;
@@ -58,17 +58,18 @@ hero h3 {
     background-size: cover;
     border-bottom: 10px var(--first-color) solid;
     text-align: center;
+
     padding-left: 25%;
     padding-right: 25%;
     padding-bottom: 25%;
+    justify-content: space-between;
 }
 .card-header {
     font-size: 70px;
     width: 100%;
     color: var(--third-color);
     box-shadow: none;
-    margin-left: 20%;
-    margin-right: 20%;
+
     margin-bottom: 200px;
     padding-top: 50px;
     text-align: center;
@@ -76,9 +77,8 @@ hero h3 {
 }
 .card-body {
     background-color: var(--fourth-color);
+    min-width: 100%;
     color: antiquewhite;
-    margin-left: 25%;
-    margin-right: 25%;
     border-radius: 50px;
     margin-top: 30px;
 }
@@ -116,5 +116,28 @@ hero h3 {
 }
 .form-input {
     font-size: 20px;
-    border-radius: 50px;
+    border-radius: 10px;
+    justify-content: center;
+}
+.btn {
+    size: 30px;
+}
+
+@media screen and (max-width: 575px) {
+    header h1 {
+        display: block;
+        text-align: center;
+    }
+    header ul {
+        display: inline-block;
+        text-align: center;
+    }
+    .card {
+        width: 100%;
+        padding: 0;
+    }
+    .card-body {
+        width: 100%;
+
+    }
 }
