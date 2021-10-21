@@ -38,7 +38,7 @@ var city_destinationId = hotelDataCall()
 let weatherDataCall = function () {
 
 
-    fetch(`https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=24&location=${apiQuery}&contentType=json&unitGroup=us&shortColumnNames=0`, {
+    fetch(`https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=24&location=${userInput}&contentType=json&unitGroup=us&shortColumnNames=0`, {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "visual-crossing-weather.p.rapidapi.com",
@@ -59,6 +59,8 @@ let weatherDataCall = function () {
 
 }
 
+/*
 window.onload = function () {
     weatherDataCall();
 }
+*/
