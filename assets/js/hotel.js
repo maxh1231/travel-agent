@@ -61,6 +61,7 @@ let weatherDataCall = function () {
                 .then(response => response.json())
                 .then(function (weatherData) {
                     console.log(weatherData);
+                    document.querySelector(".WR-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[0].icon;
                     document.querySelector(".WR-date").textContent = weatherData.response[0].periods[0].dateTimeISO
                     document.querySelector(".WR-temperature").textContent = "High: " + weatherData.response[0].periods[0].maxTempF + " Low: " + weatherData.response[0].periods[0].minTempF
                     document.querySelector(".WR-wind").textContent = weatherData.response[0].periods[0].windSpeedMPH + " MPH"
