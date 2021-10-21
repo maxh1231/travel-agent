@@ -1,17 +1,89 @@
-
-
-#header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+:root {
+    --first-color: #fd9e02;
+    --second-color: #126782;
+    --third-color: #fb8500;
+    --fourth-color: #219ebc;
+    --fifth-color: #ffb703;
 }
 
-#hero {
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Crimson Text', serif;
+}
+
+header {
+    position: -webkit-sticky;
+    position: sticky;
+}
+
+navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 1200px;
-    margin: auto;
+    color: var(--second-color);
+    background-color: var(--first-color);
+    font-family: 'Crimson Text', serif;
+}
+navbar h1 {
+    font-size: 50px;
+    font-family: 'Crimson Text', serif;
+}
+navbar ul {
+    display: inline-flex;
+}
+navbar li {
+    padding: 20px;
+}
+
+hero {
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-color: var(--second-color);
+    color: antiquewhite;
+}
+hero h2 {
+    font-size: 30px;
+}
+hero h3 {
+    font-size: 20px;
+}
+
+.card {
+    height: auto;
+    background-image: url("../image/Sunset_Freedom_Tower.jpg");
+    background-size: cover;
+    border-bottom: 10px var(--first-color) solid;
+    text-align: center;
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-bottom: 25%;
+}
+.card-header {
+    font-size: 70px;
+    width: 100%;
+    color: var(--third-color);
+    box-shadow: none;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 200px;
+    padding-top: 50px;
+    text-align: center;
+    justify-content: center;
+}
+.card-body {
+    background-color: var(--fourth-color);
+    color: antiquewhite;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+.input-group {
+    padding: 5px;
 }
 
 #hotel-container {
@@ -29,4 +101,20 @@
     justify-content: center;
     text-align: center;
 
+}
+
+.header-title {
+    font-size: 100px;
+}
+
+.card-header {
+    justify-content: space-between;
+}
+
+.form-label {
+    font-size: 20px;
+}
+.form-input {
+    font-size: 20px;
+    border-radius: 50px;
 }
