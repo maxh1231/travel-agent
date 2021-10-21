@@ -25,9 +25,6 @@ let citySearch = function (event) {
 		.catch(err => {
 			console.error(err);
 		});
-
-
-
 }
 
 submitSearchBtn.addEventListener("click", citySearch);
