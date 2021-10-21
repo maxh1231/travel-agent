@@ -1,6 +1,6 @@
 
 var apiQuery = localStorage.getItem(localStorage.key(0));
-var location = new URLSearchParams(window.location.search).get("location");
+var userInput = new URLSearchParams(window.location.search).get("location");
 
 
 
@@ -60,6 +60,7 @@ let weatherDataCall = function () {
 
 }
 
-window.onload = function () {
-    weatherDataCall();
-}
+// window.onload = function () {
+//     weatherDataCall();
+//     hotelDataCall();
+// }
