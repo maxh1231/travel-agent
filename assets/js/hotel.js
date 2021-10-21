@@ -1,13 +1,13 @@
 
 var apiQuery = localStorage.getItem(localStorage.key(0));
-var location = new URLSearchParams(window.location.search).get("location");
+var userInput = new URLSearchParams(window.location.search).get("location");
 
 
 
 // hotel data fetch
 let hotelDataCall = function () {
 
-    fetch(`https://hotels4.p.rapidapi.com/locations/search?query=${apiQuery}&locale=en_US`, {
+    fetch(`https://hotels4.p.rapidapi.com/locations/search?query=${userInput}&locale=en_US`, {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "hotels4.p.rapidapi.com",
@@ -39,7 +39,7 @@ let hotelDataCall = function () {
 let weatherDataCall = function () {
 
 
-    fetch(`https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=24&location=${apiQuery}&contentType=json&unitGroup=us&shortColumnNames=0`, {
+    fetch(`https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=24&location=${userInput}&contentType=json&unitGroup=us&shortColumnNames=0`, {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "visual-crossing-weather.p.rapidapi.com",
@@ -60,6 +60,7 @@ let weatherDataCall = function () {
 
 }
 
-window.onload = function () {
-    weatherDataCall();
-}
+// window.onload = function () {
+//     weatherDataCall();
+//     hotelDataCall();
+// }
