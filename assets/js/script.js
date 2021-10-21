@@ -12,6 +12,10 @@ var searchInputValue = document.getElementById("location");
 
 submitSearchBtn.addEventListener("click", function () {
 	localStorage.setItem(searchInputValue.value, searchInputValue.value);
+<<<<<<< HEAD
 	// window.location.href = "hotel.html"
+=======
+	// window.location.href = "./hotel.html"
+>>>>>>> develop
 
 });
