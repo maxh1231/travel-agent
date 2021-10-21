@@ -72,7 +72,7 @@ hero h3 {
     margin-bottom: 200px;
     padding-top: 50px;
     text-align: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 .card-body {
     background-color: var(--fourth-color);
