@@ -1,41 +1,56 @@
-// geocode api key 16504850b1a264a95e1797ff5a4e056b
-
 var apiQuery = localStorage.getItem(localStorage.key(0));
 var userInput = new URLSearchParams(window.location.search).get("location");
 
+var city_destinationId;
 
 
-
-// hotel data fetch
+// fetches destination id from Hotels API
 let hotelDataCall = function () {
 
     fetch(`https://hotels4.p.rapidapi.com/locations/search?query=${userInput}&locale=en_US`, {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "hotels4.p.rapidapi.com",
-            "x-rapidapi-key": "26aa5aaa64msh7c71403c8404b50p1f70d8jsn250c3dfeb42e"
+            "x-rapidapi-key": "cb11f2ee2fmsha08fecdbc24fd3cp11b47bjsn82e3b7599a4d"
         }
     })
+
         .then(response => response.json())
         .then(function (hotelData) {
-            console.log(hotelData);
-            // for (let i = 0; i < 10; i++) {
-            // 	console.log(data.suggestions[1].entities[i]);
+            var city_destinationId = hotelData.suggestions[0].entities[0].destinationId
+            fetch(`https://hotels4.p.rapidapi.com/properties/list?destinationId=${city_destinationId}&pageNumber=1&pageSize=10&checkIn=2021-10-30&checkOut=2021-10-31&adults1=1&sortOrder=PRICE&locale=en_US&currency=USD`, {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "hotels4.p.rapidapi.com",
+                    "x-rapidapi-key": "cb11f2ee2fmsha08fecdbc24fd3cp11b47bjsn82e3b7599a4d"
+                }
+            })
+                .then(response => response.json())
+                .then(function (hotelPropertiesData) {
+                    //placeholder for now until update on hotel.html
+                    console.log(hotelPropertiesData.data.body.searchResults.results)
+                    document.querySelector(".HR-picture").src = hotelPropertiesData.data.body.searchResults.results[0].optimizedThumbUrls.srpDesktop
+                    document.querySelector(".HR-price").textContent = hotelPropertiesData.data.body.searchResults.results[0].ratePlan.price.current
+                    document.querySelector(".HR-rating").textContent = hotelPropertiesData.data.body.searchResults.results[0].starRating + " star"
+                    document.querySelector(".HR-address").textContent = hotelPropertiesData.data.body.searchResults.results[0].address.streetAddress + ", "
+                        + hotelPropertiesData.data.body.searchResults.results[0].address.locality + ", " + hotelPropertiesData.data.body.searchResults.results[0].address.region + " " + hotelPropertiesData.data.body.searchResults.results[0].address.postalCode
+                    document.querySelector(".HR-name").textContent = hotelPropertiesData.data.body.searchResults.results[0].name
+                    var hotelLocation = hotelPropertiesData.data.body.searchResults.results[0].coordinate
+                    //document.querySelector(".HR-map").src = "https://www.google.com/maps/embed/v1/streetview?location=40.7719,-111.8764&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU"
+                    document.querySelector(".HR-map").src = `https://www.google.com/maps/embed/v1/streetview?location=${hotelLocation["lat"]},${hotelLocation["lon"]}&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU`
+                })
 
-            // }
-
-
-
-
+                .catch(err => {
+                    console.error(err);
+                });
         })
 
-        .catch(err => {
-            console.error(err);
-        });
-
-
-
 }
+
+
+
+
+
 
 // weather data fetch
 let weatherDataCall = function () {
@@ -77,7 +92,9 @@ let weatherDataCall = function () {
         })
 }
 
-window.onload = function () {
-    weatherDataCall();
-    // hotelDataCall();
-}
+
+// window.onload = function () {
+//     weatherDataCall();
+//     hotelDataCall();
+// }
+

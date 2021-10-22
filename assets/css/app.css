@@ -79,7 +79,7 @@ hero h3 {
     color: antiquewhite;
     margin-left: 25%;
     margin-right: 25%;
-    border-radius: 50px;
+    border-radius: 20px;
     margin-top: 30px;
 }
 .input-group {
@@ -117,4 +117,111 @@ hero h3 {
 .form-input {
     font-size: 20px;
     border-radius: 50px;
+}
+
+#searchBtn {
+    padding: 5px 15px;
+    background-color: var(--second-color);
+    color: antiquewhite;
+    border: 1px solid var(--second-color);
+    border-radius: 5px;
+    font-size: 1.25rem;
+}
+
+#searchBtn:hover {
+    cursor: pointer;
+    background-color: var(--fourth-color);
+    border: 2px solid var(--second-color);
+}
+
+/* hotel.html styles */
+
+main {
+    background-image: url("../image/Sunset_Freedom_Tower.jpg");
+    background-size: cover;
+}
+
+.result-title {
+    color: var(--third-color);
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#weather-results-container {
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+#WR-01, #WR-02, #WR-03, #WR-04, #WR-05 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 25px;
+    margin: 0px 10px;
+    color: antiquewhite;
+    background-color: var(--second-color);
+    border: 1px solid var(--second-color);
+    border-radius: 5px;
+    height: 250px;
+
+}
+
+.WR-detail  {
+   height: 100%;
+    display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   font-size: 1.25rem;
+   text-align: right;
+}
+
+
+.search-result-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hotel-result {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+}
+
+#HR-01, #HR-02, #HR-03, #HR-04, #HR-05 {
+    padding: 10px 25px;
+    margin: 0px 10px;
+    color: antiquewhite;
+    background-color: var(--second-color);
+    border: 1px solid var(--second-color);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 302px;
+    height: 642px;
+}
+
+.HR-detail  {
+    height: 100%;
+     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 1.25rem;
+    text-align: right;
+ }
+
+iframe {
+    width: 250px;
+    height: 250px;
+}
+
+.HR-picture {
+    width: 250px;
+    height: 250px;
 }
