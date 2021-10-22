@@ -14,7 +14,7 @@ let hotelDataCall = function () {
             "x-rapidapi-key": "cb11f2ee2fmsha08fecdbc24fd3cp11b47bjsn82e3b7599a4d"
         }
     })
-    
+
         .then(response => response.json())
         .then(function (hotelData) {
             var city_destinationId = hotelData.suggestions[0].entities[0].destinationId
@@ -32,26 +32,24 @@ let hotelDataCall = function () {
                     document.querySelector(".HR-picture").src = hotelPropertiesData.data.body.searchResults.results[0].optimizedThumbUrls.srpDesktop
                     document.querySelector(".HR-price").textContent = hotelPropertiesData.data.body.searchResults.results[0].ratePlan.price.current
                     document.querySelector(".HR-rating").textContent = hotelPropertiesData.data.body.searchResults.results[0].starRating + " star"
-                    document.querySelector(".HR-address").textContent = hotelPropertiesData.data.body.searchResults.results[0].address.streetAddress + ", " 
-                    + hotelPropertiesData.data.body.searchResults.results[0].address.locality + ", " + hotelPropertiesData.data.body.searchResults.results[0].address.region + " " + hotelPropertiesData.data.body.searchResults.results[0].address.postalCode
+                    document.querySelector(".HR-address").textContent = hotelPropertiesData.data.body.searchResults.results[0].address.streetAddress + ", "
+                        + hotelPropertiesData.data.body.searchResults.results[0].address.locality + ", " + hotelPropertiesData.data.body.searchResults.results[0].address.region + " " + hotelPropertiesData.data.body.searchResults.results[0].address.postalCode
                     document.querySelector(".HR-name").textContent = hotelPropertiesData.data.body.searchResults.results[0].name
                     var hotelLocation = hotelPropertiesData.data.body.searchResults.results[0].coordinate
                     //document.querySelector(".HR-map").src = "https://www.google.com/maps/embed/v1/streetview?location=40.7719,-111.8764&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU"
                     document.querySelector(".HR-map").src = `https://www.google.com/maps/embed/v1/streetview?location=${hotelLocation["lat"]},${hotelLocation["lon"]}&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU`
                 })
 
-                    .catch(err => {
-                        console.error(err);
-                    });
+                .catch(err => {
+                    console.error(err);
+                });
         })
 
 }
 
 
 
-window.onload = function () {
-    hotelDataCall();
-}
+
 
 
 // weather data fetch
@@ -94,8 +92,9 @@ let weatherDataCall = function () {
         })
 }
 
-/*
-window.onload = function () {
-    weatherDataCall();
-}
-*/
+
+// window.onload = function () {
+//     weatherDataCall();
+//     hotelDataCall();
+// }
+
