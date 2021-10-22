@@ -25,6 +25,7 @@ navbar {
     align-items: center;
     color: var(--second-color);
     background-color: var(--first-color);
+    padding-bottom: 5px;
 }
 navbar h1 {
     font-size: 50px;
@@ -35,6 +36,12 @@ navbar ul {
 }
 navbar li {
     padding: 20px;
+    font-size: 20px;
+    color: var(--first-color);
+}
+navbar a {
+    text-decoration: none;
+    color: var(--second-color);
 }
 
 hero {
@@ -44,6 +51,8 @@ hero {
     height: auto;
     background-color: var(--second-color);
     color: antiquewhite;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 hero h2 {
     font-size: 30px;
@@ -65,15 +74,14 @@ hero h3 {
     justify-content: space-between;
 }
 .card-header {
+    display: block;
     font-size: 70px;
-    width: 100%;
     color: var(--third-color);
     box-shadow: none;
-
     margin-bottom: 200px;
     padding-top: 50px;
-    text-align: center;
-    justify-content: space-between;
+    align-content: center;
+    font-style: italic;
 }
 .card-body {
     background-color: var(--fourth-color);
@@ -86,7 +94,7 @@ hero h3 {
     padding: 5px;
 }
 
-#hotel-container {
+#hotel-results-container {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -94,7 +102,7 @@ hero h3 {
     text-align: center;
 }
 
-#weather-container {
+#weather-results-container {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -124,20 +132,42 @@ hero h3 {
 }
 
 @media screen and (max-width: 575px) {
-    header h1 {
-        display: block;
+    navbar {
+        vertical-align: middle;
+        display:inline-block;
         text-align: center;
+    }
+    header h1 {
+        font-style: italic;
+        display: inline-block;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
     }
     header ul {
         display: inline-block;
         text-align: center;
     }
+    hero {
+        padding: 5px;
+    }
+    hero h2 {
+        padding-bottom: 20px;
+    }
     .card {
         width: 100%;
         padding: 0;
     }
+    .card-header {
+        padding: 0;
+        font-size: 60px;
+        font-style: italic;
+    }
     .card-body {
         width: 100%;
 
+    }
+    .btn {
+        size: 30px;
     }
 }
