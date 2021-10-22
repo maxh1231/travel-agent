@@ -1,14 +1,41 @@
 var submitSearchBtn = document.getElementById("searchBtn");
+var searchInputValue = document.getElementById("location");
+
 var PSDcontainer = document.getElementsByClassName("PSD-container");
 
+// Update the "previousSearch" by putting "newSearch" into it, then clear out "previousSearch"
+var updatePreviousSearch = function () {
+	var newSearch = localStorage.getItem("newSearch");
+	var previousSearch = localStorage.getItem("previousSearch");
+	var temp = [];
+
+	if (newSearch) {
+		// If there is newSearch data, try to update previousSearch
+		var newSearchItem = JSON.parse(newSearch);
+		if (!previousSearch) {
+			// If previousSearch is empty, put newSearch data into array and store in previousSearch
+			temp.push(newSearchItem)
+			localStorage.setItem("previousSearch", JSON.stringify(temp));
+		} else {
+			// If there is previousSearch data, push newSearch data into it
+			var previousSearchRecord = JSON.parse(previousSearch);
+			previousSearchRecord.push(newSearchItem);
+			localStorage.setItem("previousSearch", JSON.stringify(previousSearchRecord));
+		}
+		// Clear out newSearch data in case user refresh
+		localStorage.setItem("newSearch", "");
+	} 
+}
+
+// Display All Previous Search Record
 var loadPreviousSearch = function () {
 	var previousSearch = localStorage.getItem("previousSearch");
-
+	
 	// Load the previous search record if there is any.
 	if (previousSearch) {
-		previousSearch = JSON.parse(previousSearch);
+		var previousSearchRecord = JSON.parse(previousSearch);
 
-		for (var i = 0; i < previousSearch.length; i++)
+		for (var i = 0; i < previousSearchRecord.length; i++)
 		{
 			// Example Structure
 			//  <article id="PSD-1" class="PSD-item">
@@ -44,7 +71,7 @@ var loadPreviousSearch = function () {
 			displaylabel.setAttribute("class","display-label");
 			displaylabel.textContent = "Location : ";
 			displayanswer.setAttribute("class", "display-answer");
-			displayanswer.textContent = previousSearch[i];
+			displayanswer.textContent = previousSearchRecord[i];
 			searchBtn.setAttribute("type", "button");
 			searchBtn.setAttribute("class", "btn");
 			searchBtn.setAttribute("id", searchBtnID);
@@ -64,24 +91,25 @@ var loadPreviousSearch = function () {
 			PSDdestination.appendChild(displayanswer);
 
 		}
+	} else {
+		// Display No Record Message
+		var displayTitle = document.createElement("h3");
+		displayTitle.setAttribute("class", "noRecordMessage");
+		displayTitle.textContent = "There is no previous search record";
+		PSDcontainer[0].appendChild(displayTitle);
 	}
+
+
 }
 
-submitSearchBtn.addEventListener("click", function (event) {
-	event.preventDefault();
 
-	var searchInputValue = document.getElementById("location");
-	var previousSearch = localStorage.getItem("previousSearch");
-	var temporarySearch = [];
+// Saved the search location to Local Storage "newSearch"
+submitSearchBtn.addEventListener("click", function () {
 
-	if (!previousSearch) {
-        temporarySearch.push(searchInputValue.value);
-        localStorage.setItem("previousSearch", JSON.stringify(temporarySearch));
-    } else {
-		previousSearch = JSON.parse(previousSearch);
-		previousSearch.push(searchInputValue.value);
-		localStorage.setItem("previousSearch", JSON.stringify(previousSearch));
-	}
+	localStorage.setItem("newSearch", JSON.stringify(searchInputValue.value));
+	//window.location.href = "./hotel.html"
+
 });
 
+updatePreviousSearch();
 loadPreviousSearch();
