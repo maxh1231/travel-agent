@@ -30,11 +30,13 @@ var updatePreviousSearch = function () {
 // Display All Previous Search Record
 var loadPreviousSearch = function () {
 	var previousSearch = localStorage.getItem("previousSearch");
-	
-	// Load the previous search record if there is any.
-	if (previousSearch) {
-		var previousSearchRecord = JSON.parse(previousSearch);
+	// Empty PSD-container
+	PSDcontainer[0].innerHTML = "";  // Comment this Line if hard code example is needed. CSSexample
+	var previousSearchRecord = JSON.parse(previousSearch);
 
+	// Load the previous search record if there is any.
+	if (previousSearchRecord[0]) {
+		
 		for (var i = 0; i < previousSearchRecord.length; i++)
 		{
 			// Example Structure
@@ -110,6 +112,41 @@ submitSearchBtn.addEventListener("click", function () {
 	//window.location.href = "./hotel.html"
 
 });
+
+PSDcontainer[0].addEventListener("click", function(event) {
+	var targetID = event.target.id;
+	var targetClass = event.target.className;
+
+	if (targetClass == "btn") {
+		// If it is the button, break down the ID for more info
+		var targetIDInfo = targetID.split("-");
+		var previousSearch = localStorage.getItem("previousSearch");
+		previousSearch = JSON.parse(previousSearch);
+
+		if (targetIDInfo[2] == "searchBtn") {
+			// If it is a search button, pull the location from Local Storage
+			var targetLocation = previousSearch[targetIDInfo[1]];
+
+			// Replacing spaces into +, and generate the href link
+			targetLocation = targetLocation.replaceAll(" ", "+");
+			var hrefLink = "./hotel.html?location=" + targetLocation;
+			
+			// Go to hotel.html with the query string
+			window.location.href = hrefLink;
+		} else {
+			var temp = [];
+			for (var i = 0; i < previousSearch.length; i++) {
+				// Push all previous search record to temporary array except the one need to be deleted
+				if (i != targetIDInfo[1]) {
+					temp.push(previousSearch[i]);
+				}	
+			}
+			localStorage.setItem("previousSearch", JSON.stringify(temp));
+			loadPreviousSearch();
+		}
+	}
+
+})
 
 updatePreviousSearch();
 loadPreviousSearch();
