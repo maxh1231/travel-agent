@@ -76,12 +76,47 @@ let weatherDataCall = function () {
                 .then(response => response.json())
                 .then(function (weatherData) {
                     console.log(weatherData);
-                    document.querySelector(".WR-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[0].icon;
-                    document.querySelector(".WR-date").textContent = weatherData.response[0].periods[0].dateTimeISO
-                    document.querySelector(".WR-temperature").textContent = "High: " + weatherData.response[0].periods[0].maxTempF + " Low: " + weatherData.response[0].periods[0].minTempF
-                    document.querySelector(".WR-wind").textContent = weatherData.response[0].periods[0].windSpeedMPH + " MPH"
-                    document.querySelector(".WR-humidity").textContent = weatherData.response[0].periods[0].humidity + " %"
-                    document.querySelector(".WR-uv-index").textContent = weatherData.response[0].periods[0].uvi
+
+                    // Day 1
+                    document.getElementById("WR-01-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[0].icon;
+                    document.getElementById("WR-01-date").textContent = moment().format("M/DD/YYYY");
+                    document.getElementById("WR-01-temp").textContent = "High: " + weatherData.response[0].periods[0].maxTempF + " Low: " + weatherData.response[0].periods[0].minTempF
+                    document.getElementById("WR-01-wind").textContent = weatherData.response[0].periods[0].windSpeedMPH + " MPH"
+                    document.getElementById("WR-01-humidity").textContent = weatherData.response[0].periods[0].humidity + " %"
+                    document.getElementById("WR-01-index").textContent = weatherData.response[0].periods[0].uvi + " UVI"
+
+                    // Day 2
+                    document.getElementById("WR-02-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[1].icon;
+                    document.getElementById("WR-02-date").textContent = moment().add(1, 'days').format("M/DD/YYYY");
+                    document.getElementById("WR-02-temp").textContent = "High: " + weatherData.response[0].periods[1].maxTempF + " Low: " + weatherData.response[0].periods[1].minTempF
+                    document.getElementById("WR-02-wind").textContent = weatherData.response[0].periods[1].windSpeedMPH + " MPH"
+                    document.getElementById("WR-02-humidity").textContent = weatherData.response[0].periods[1].humidity + " %"
+                    document.getElementById("WR-02-index").textContent = weatherData.response[0].periods[1].uvi + " UVI"
+
+                    // Day 3
+                    document.getElementById("WR-03-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[2].icon;
+                    document.getElementById("WR-03-date").textContent = moment().add(2, 'days').format("M/DD/YYYY");
+                    document.getElementById("WR-03-temp").textContent = "High: " + weatherData.response[0].periods[2].maxTempF + " Low: " + weatherData.response[0].periods[2].minTempF
+                    document.getElementById("WR-03-wind").textContent = weatherData.response[0].periods[2].windSpeedMPH + " MPH"
+                    document.getElementById("WR-03-humidity").textContent = weatherData.response[0].periods[2].humidity + " %"
+                    document.getElementById("WR-03-index").textContent = weatherData.response[0].periods[2].uvi + " UVI"
+
+                    // Day 4
+                    document.getElementById("WR-04-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[3].icon;
+                    document.getElementById("WR-04-date").textContent = moment().add(3, 'days').format("M/DD/YYYY");
+                    document.getElementById("WR-04-temp").textContent = "High: " + weatherData.response[0].periods[3].maxTempF + " Low: " + weatherData.response[0].periods[3].minTempF
+                    document.getElementById("WR-04-wind").textContent = weatherData.response[0].periods[3].windSpeedMPH + " MPH"
+                    document.getElementById("WR-04-humidity").textContent = weatherData.response[0].periods[3].humidity + " %"
+                    document.getElementById("WR-04-index").textContent = weatherData.response[0].periods[3].uvi + " UVI"
+
+                    // Day 5
+                    document.getElementById("WR-05-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[4].icon;
+                    document.getElementById("WR-05-date").textContent = moment().add(4, 'days').format("M/DD/YYYY");
+                    document.getElementById("WR-05-temp").textContent = "High: " + weatherData.response[0].periods[4].maxTempF + " Low: " + weatherData.response[0].periods[4].minTempF
+                    document.getElementById("WR-05-wind").textContent = weatherData.response[0].periods[4].windSpeedMPH + " MPH"
+                    document.getElementById("WR-05-humidity").textContent = weatherData.response[0].periods[4].humidity + " %"
+                    document.getElementById("WR-05-index").textContent = weatherData.response[0].periods[4].uvi + " UVI"
+
 
 
 
@@ -93,8 +128,8 @@ let weatherDataCall = function () {
 }
 
 
-// window.onload = function () {
-//     weatherDataCall();
-//     hotelDataCall();
-// }
+window.onload = function () {
+    weatherDataCall();
+    hotelDataCall();
+}
 
