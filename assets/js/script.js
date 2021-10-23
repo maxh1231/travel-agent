@@ -1,17 +1,152 @@
 var submitSearchBtn = document.getElementById("searchBtn");
 var searchInputValue = document.getElementById("location");
 
+var PSDcontainer = document.getElementsByClassName("PSD-container");
+
+// Update the "previousSearch" by putting "newSearch" into it, then clear out "previousSearch"
+var updatePreviousSearch = function () {
+	var newSearch = localStorage.getItem("newSearch");
+	var previousSearch = localStorage.getItem("previousSearch");
+	var temp = [];
+
+	if (newSearch) {
+		// If there is newSearch data, try to update previousSearch
+		var newSearchItem = JSON.parse(newSearch);
+		if (!previousSearch) {
+			// If previousSearch is empty, put newSearch data into array and store in previousSearch
+			temp.push(newSearchItem)
+			localStorage.setItem("previousSearch", JSON.stringify(temp));
+		} else {
+			// If there is previousSearch data, push newSearch data into it
+			var previousSearchRecord = JSON.parse(previousSearch);
+			previousSearchRecord.push(newSearchItem);
+			localStorage.setItem("previousSearch", JSON.stringify(previousSearchRecord));
+		}
+		// Clear out newSearch data in case user refresh
+		localStorage.setItem("newSearch", "");
+	} 
+}
+
+// Display All Previous Search Record
+var loadPreviousSearch = function () {
+	var previousSearch = localStorage.getItem("previousSearch");
+	// Empty PSD-container
+	PSDcontainer[0].innerHTML = "";  // Comment this Line if hard code example is needed. CSSexample
+	var previousSearchRecord = JSON.parse(previousSearch);
+
+	// Load the previous search record if there is any.
+	if (previousSearchRecord[0]) {
+		
+		for (var i = 0; i < previousSearchRecord.length; i++)
+		{
+			// Example Structure
+			//  <article id="PSD-1" class="PSD-item">
+            //   <div class="PSD-detail">
+            //    <div class="PSD-destination">
+            //     <h3 class="display-label">Location : </h3>
+            //     <h3 class="display-answer">Salt Lake City</h3>
+            //    </div>
+            //   </div>
+            //   <button type="button" class="btn" id="PSD-1-searchBtn">Search Again</button>
+            //   <button type="button" class="btn" id="PSD-1-deleteBtn">Delete Record</button>
+            //  </article>
+
+			// Generate ID string
+			var PSDitemID = "PSD-" + i;
+			var searchBtnID = "PSD-" + i + "-searchBtn";
+			var deleteBtnID = "PSD-" + i + "-deleteBtn";
+		
+			// Create Elements
+			var PSDitem = document.createElement("article");
+			var PSDdetail = document.createElement("div");
+			var PSDdestination = document.createElement("div");
+			var displaylabel = document.createElement("h3");
+			var displayanswer = document.createElement("h3");
+			var searchBtn = document.createElement("button");
+			var deleteBtn = document.createElement("button");
+			
+			// Set Attribute for each elements
+			PSDitem.setAttribute("id", PSDitemID);
+			PSDitem.setAttribute("class", "PSD-item");
+			PSDdetail.setAttribute("class", "PSD-detail");
+			PSDdestination.setAttribute("class", "PSD-destination");
+			displaylabel.setAttribute("class","display-label");
+			displaylabel.textContent = "Location : ";
+			displayanswer.setAttribute("class", "display-answer");
+			displayanswer.textContent = previousSearchRecord[i];
+			searchBtn.setAttribute("type", "button");
+			searchBtn.setAttribute("class", "btn");
+			searchBtn.setAttribute("id", searchBtnID);
+			searchBtn.textContent = "Search Again";
+			deleteBtn.setAttribute("type", "button");
+			deleteBtn.setAttribute("class", "btn");
+			deleteBtn.setAttribute("id", deleteBtnID);
+			deleteBtn.textContent = "Delete Record";
+
+			// Position each element in their spots
+			PSDcontainer[0].appendChild(PSDitem);
+			PSDitem.appendChild(PSDdetail);
+			PSDitem.appendChild(searchBtn);
+			PSDitem.appendChild(deleteBtn);
+			PSDdetail.appendChild(PSDdestination);
+			PSDdestination.appendChild(displaylabel);
+			PSDdestination.appendChild(displayanswer);
+
+		}
+	} else {
+		// Display No Record Message
+		var displayTitle = document.createElement("h3");
+		displayTitle.setAttribute("class", "noRecordMessage");
+		displayTitle.textContent = "There is no previous search record";
+		PSDcontainer[0].appendChild(displayTitle);
+	}
 
 
-
-// hotel data fetch
-
-
-// weather data fetch
+}
 
 
+// Saved the search location to Local Storage "newSearch"
 submitSearchBtn.addEventListener("click", function () {
-	localStorage.setItem(searchInputValue.value, searchInputValue.value);
+
+	localStorage.setItem("newSearch", JSON.stringify(searchInputValue.value));
 	//window.location.href = "./hotel.html"
 
 });
+
+PSDcontainer[0].addEventListener("click", function(event) {
+	var targetID = event.target.id;
+	var targetClass = event.target.className;
+
+	if (targetClass == "btn") {
+		// If it is the button, break down the ID for more info
+		var targetIDInfo = targetID.split("-");
+		var previousSearch = localStorage.getItem("previousSearch");
+		previousSearch = JSON.parse(previousSearch);
+
+		if (targetIDInfo[2] == "searchBtn") {
+			// If it is a search button, pull the location from Local Storage
+			var targetLocation = previousSearch[targetIDInfo[1]];
+
+			// Replacing spaces into +, and generate the href link
+			targetLocation = targetLocation.replaceAll(" ", "+");
+			var hrefLink = "./hotel.html?location=" + targetLocation;
+			
+			// Go to hotel.html with the query string
+			window.location.href = hrefLink;
+		} else {
+			var temp = [];
+			for (var i = 0; i < previousSearch.length; i++) {
+				// Push all previous search record to temporary array except the one need to be deleted
+				if (i != targetIDInfo[1]) {
+					temp.push(previousSearch[i]);
+				}	
+			}
+			localStorage.setItem("previousSearch", JSON.stringify(temp));
+			loadPreviousSearch();
+		}
+	}
+
+})
+
+updatePreviousSearch();
+loadPreviousSearch();
