@@ -6,11 +6,12 @@
     --fifth-color: #ffb703;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 header {
@@ -24,7 +25,7 @@ navbar {
     align-items: center;
     color: var(--second-color);
     background-color: var(--first-color);
-    font-family: 'Crimson Text', serif;
+    padding-bottom: 5px;
 }
 navbar h1 {
     font-size: 50px;
@@ -35,6 +36,12 @@ navbar ul {
 }
 navbar li {
     padding: 20px;
+    font-size: 20px;
+    color: var(--first-color);
+}
+navbar a {
+    text-decoration: none;
+    color: var(--second-color);
 }
 
 hero {
@@ -44,6 +51,8 @@ hero {
     height: auto;
     background-color: var(--second-color);
     color: antiquewhite;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 hero h2 {
     font-size: 30px;
@@ -58,27 +67,28 @@ hero h3 {
     background-size: cover;
     border-bottom: 10px var(--first-color) solid;
     text-align: center;
+
     padding-left: 25%;
     padding-right: 25%;
     padding-bottom: 25%;
+    justify-content: space-between;
 }
 .card-header {
+    display: block;
     font-size: 70px;
-    width: 100%;
     color: var(--third-color);
     box-shadow: none;
-    margin-left: 20%;
-    margin-right: 20%;
     margin-bottom: 200px;
     padding-top: 50px;
     text-align: center;
-    justify-content: center;
+    font-style: italic;
 }
 .card-body {
     background-color: var(--fourth-color);
+    min-width: 100%;
     color: antiquewhite;
-    margin-left: 25%;
-    margin-right: 25%;
+    /* margin-left: 25%;
+    margin-right: 25%; */
     border-radius: 20px;
     margin-top: 30px;
 }
@@ -86,7 +96,7 @@ hero h3 {
     padding: 5px;
 }
 
-#hotel-container {
+#hotel-results-container {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -94,7 +104,7 @@ hero h3 {
     text-align: center;
 }
 
-#weather-container {
+#weather-results-container {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -134,6 +144,20 @@ hero h3 {
     border: 2px solid var(--second-color);
 }
 
+footer {
+    background-color: var(--fourth-color);
+    color: var(--first-color);
+}
+footer h3 {
+    font-size: 25px;
+}
+footer div {
+    font-size: 15px;
+}
+footer h3, footer div {
+    padding: 10px;
+}
+
 /* hotel.html styles */
 
 main {
@@ -151,18 +175,20 @@ main {
 }
 
 #weather-results-container {
-    display: flex;
     justify-content: center;
-    
-    
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 #WR-01, #WR-02, #WR-03, #WR-04, #WR-05 {
     display: flex;
-    justify-content: space-between;
+    flex: 1;
+    justify-content: center;
     align-items: center;
     padding: 10px 25px;
-    margin: 0px 10px;
+    margin: 10px;
+    min-width: 200px;
     color: antiquewhite;
     background-color: var(--second-color);
     border: 1px solid var(--second-color);
@@ -188,19 +214,27 @@ main {
 
 .search-result-display {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
 .hotel-result {
     display: flex; 
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
+    margin: 0 auto;
+}
+.hotel-result h4 {
+    font-size: 20px;
+    font-style: bold;
+    padding-bottom: 20px;
 }
 
 #HR-01, #HR-02, #HR-03, #HR-04, #HR-05 {
     padding: 10px 25px;
-    margin: 0px 10px;
+    margin: 10px;
     color: antiquewhite;
     background-color: var(--second-color);
     border: 1px solid var(--second-color);
@@ -212,14 +246,12 @@ main {
     height: 642px;
 }
 
-.HR-detail  {
+/* .HR-detail  {
     height: 100%;
-     display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
-    font-size: 1.25rem;
-    text-align: right;
- }
+ } */
 
 iframe {
     width: 250px;
@@ -229,4 +261,15 @@ iframe {
 .HR-picture {
     width: 250px;
     height: 250px;
+    padding-top: 20px;
+}
+
+@media screen and (max-width: 980px) {
+    html,body {
+        width: 100%;
+        height:100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
 }
