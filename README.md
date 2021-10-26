@@ -22,10 +22,10 @@ Weather API - https://rapidapi.com/darkskyapis/api/dark-sky/
 WireFrame
 
 Index WireFrame
-![Index WireFrame](screenshots/Index_wireframe.PNG "Index WireFrame")
+![Index WireFrame](screenshots/Indexwireframe.png "Index WireFrame")
 
 Hotel WireFrame
-![Hotel WireFrame](screenshots/Hotel_wireframe.PNG "Hotel WireFrame")
+![Hotel WireFrame](screenshots/Hotelwireframe.png "Hotel WireFrame")
 
 Application ScreenShots
 
