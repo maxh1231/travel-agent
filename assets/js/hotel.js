@@ -27,19 +27,28 @@ let hotelDataCall = function () {
             })
                 .then(response => response.json())
                 .then(function (hotelPropertiesData) {
-                    //placeholder for now until update on hotel.html
                     console.log(hotelPropertiesData.data.body.searchResults.results)
-                    document.querySelector(".HR-picture").src = hotelPropertiesData.data.body.searchResults.results[0].optimizedThumbUrls.srpDesktop
-                    document.querySelector(".HR-price").textContent = hotelPropertiesData.data.body.searchResults.results[0].ratePlan.price.current
-                    document.querySelector(".HR-rating").textContent = hotelPropertiesData.data.body.searchResults.results[0].starRating + " star"
-                    document.querySelector(".HR-address").textContent = hotelPropertiesData.data.body.searchResults.results[0].address.streetAddress + ", "
-                        + hotelPropertiesData.data.body.searchResults.results[0].address.locality + ", " + hotelPropertiesData.data.body.searchResults.results[0].address.region + " " + hotelPropertiesData.data.body.searchResults.results[0].address.postalCode
-                    document.querySelector(".HR-name").textContent = hotelPropertiesData.data.body.searchResults.results[0].name
-                    var hotelLocation = hotelPropertiesData.data.body.searchResults.results[0].coordinate
-                    //document.querySelector(".HR-map").src = "https://www.google.com/maps/embed/v1/streetview?location=40.7719,-111.8764&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU"
-                    document.querySelector(".HR-map").src = `https://www.google.com/maps/embed/v1/streetview?location=${hotelLocation["lat"]},${hotelLocation["lon"]}&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU`
+                    var resultsLength = hotelPropertiesData.data.body.searchResults.results.length
+                    var count = 0;
+                    for (let i = 0; i <= resultsLength; i++){
+                        if ((document.querySelector(".HR-0".concat(i+1-count)+"-price").textContent) === null){
+                            return;
+                        } else {
+                            if (hotelPropertiesData.data.body.searchResults.results[i].address.streetAddress === undefined){
+                                count++;
+                            } else {
+                                document.querySelector(".HR-0".concat(i+1-count)+"-picture").src = hotelPropertiesData.data.body.searchResults.results[i].optimizedThumbUrls.srpDesktop
+                                document.querySelector(".HR-0".concat(i+1-count)+"-price").textContent = hotelPropertiesData.data.body.searchResults.results[i].ratePlan.price.current
+                                document.querySelector(".HR-0".concat(i+1-count)+"-rating").textContent = hotelPropertiesData.data.body.searchResults.results[i].starRating + " star"
+                                document.querySelector(".HR-0".concat(i+1-count)+"-address").textContent = hotelPropertiesData.data.body.searchResults.results[i].address.streetAddress + ", "
+                                    + hotelPropertiesData.data.body.searchResults.results[i].address.locality + ", " + hotelPropertiesData.data.body.searchResults.results[i].address.region + " " + hotelPropertiesData.data.body.searchResults.results[i].address.postalCode
+                                document.querySelector(".HR-0".concat(i+1-count)+"-name").textContent = hotelPropertiesData.data.body.searchResults.results[i].name
+                                var hotelLocation = hotelPropertiesData.data.body.searchResults.results[i].coordinate
+                                document.querySelector(".HR-0".concat(i+1-count)+"-map").src = `https://www.google.com/maps/embed/v1/streetview?location=${hotelLocation["lat"]},${hotelLocation["lon"]}&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU`
+                            }
+                        }
+                    }
                 })
-
                 .catch(err => {
                     console.error(err);
                 });
