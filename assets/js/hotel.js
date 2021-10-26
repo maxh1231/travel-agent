@@ -93,8 +93,8 @@ let weatherDataCall = function () {
 }
 
 
-// window.onload = function () {
-//     weatherDataCall();
-//     hotelDataCall();
-// }
+window.onload = function () {
+    weatherDataCall();
+    // hotelDataCall();
+}
 

@@ -80,15 +80,15 @@ hero h3 {
     box-shadow: none;
     margin-bottom: 200px;
     padding-top: 50px;
-    align-content: center;
+    text-align: center;
     font-style: italic;
 }
 .card-body {
     background-color: var(--fourth-color);
     min-width: 100%;
     color: antiquewhite;
-    margin-left: 25%;
-    margin-right: 25%;
+    /* margin-left: 25%;
+    margin-right: 25%; */
     border-radius: 20px;
     margin-top: 30px;
 }
