@@ -16,14 +16,15 @@
 header {
     position: -webkit-sticky;
     position: sticky;
+    color: antiquewhite;
 }
 
 navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--second-color);
-    background-color: var(--first-color);
+    color: antiquewhite;
+    background-color: var(--second-color);
     font-family: 'Crimson Text', serif;
 }
 navbar h1 {
@@ -33,17 +34,36 @@ navbar h1 {
 navbar ul {
     display: inline-flex;
 }
-navbar li {
+navbar ul li {
     padding: 20px;
+    font-size: 20px;
+    
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar-item {
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+.navbar-item:hover {
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: var(--second-color);
 }
 
 hero {
-    display: block;
+    
     text-align: center;
-    width: 100%;
+    
     height: auto;
-    background-color: var(--second-color);
-    color: antiquewhite;
+    
+    
 }
 hero h2 {
     font-size: 30px;
@@ -136,6 +156,17 @@ hero h3 {
 
 /* hotel.html styles */
 
+.logo h1{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.logo h1:hover{
+    cursor: pointer;
+    color: grey;
+}
+
 main {
     background-image: url("../image/Sunset_Freedom_Tower.jpg");
     background-size: cover;
@@ -212,14 +243,14 @@ main {
     height: 642px;
 }
 
-.HR-detail  {
+/* .HR-detail  {
     height: 100%;
      display: flex;
     flex-direction: column;
     justify-content: space-around;
     font-size: 1.25rem;
     text-align: right;
- }
+ } */
 
 iframe {
     width: 250px;

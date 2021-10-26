@@ -30,21 +30,21 @@ let hotelDataCall = function () {
                     console.log(hotelPropertiesData.data.body.searchResults.results)
                     var resultsLength = hotelPropertiesData.data.body.searchResults.results.length
                     var count = 0;
-                    for (let i = 0; i <= resultsLength; i++){
-                        if ((document.querySelector(".HR-0".concat(i+1-count)+"-price").textContent) === null){
+                    for (let i = 0; i <= resultsLength; i++) {
+                        if ((document.querySelector(".HR-0".concat(i + 1 - count) + "-price").textContent) === null) {
                             return;
                         } else {
-                            if (hotelPropertiesData.data.body.searchResults.results[i].address.streetAddress === undefined){
+                            if (hotelPropertiesData.data.body.searchResults.results[i].address.streetAddress === undefined) {
                                 count++;
                             } else {
-                                document.querySelector(".HR-0".concat(i+1-count)+"-picture").src = hotelPropertiesData.data.body.searchResults.results[i].optimizedThumbUrls.srpDesktop
-                                document.querySelector(".HR-0".concat(i+1-count)+"-price").textContent = hotelPropertiesData.data.body.searchResults.results[i].ratePlan.price.current
-                                document.querySelector(".HR-0".concat(i+1-count)+"-rating").textContent = hotelPropertiesData.data.body.searchResults.results[i].starRating + " star"
-                                document.querySelector(".HR-0".concat(i+1-count)+"-address").textContent = hotelPropertiesData.data.body.searchResults.results[i].address.streetAddress + ", "
+                                document.querySelector(".HR-0".concat(i + 1 - count) + "-picture").src = hotelPropertiesData.data.body.searchResults.results[i].optimizedThumbUrls.srpDesktop
+                                document.querySelector(".HR-0".concat(i + 1 - count) + "-price").textContent = hotelPropertiesData.data.body.searchResults.results[i].ratePlan.price.current
+                                document.querySelector(".HR-0".concat(i + 1 - count) + "-rating").textContent = hotelPropertiesData.data.body.searchResults.results[i].starRating + " star"
+                                document.querySelector(".HR-0".concat(i + 1 - count) + "-address").textContent = hotelPropertiesData.data.body.searchResults.results[i].address.streetAddress + ", "
                                     + hotelPropertiesData.data.body.searchResults.results[i].address.locality + ", " + hotelPropertiesData.data.body.searchResults.results[i].address.region + " " + hotelPropertiesData.data.body.searchResults.results[i].address.postalCode
-                                document.querySelector(".HR-0".concat(i+1-count)+"-name").textContent = hotelPropertiesData.data.body.searchResults.results[i].name
+                                document.querySelector(".HR-0".concat(i + 1 - count) + "-name").textContent = hotelPropertiesData.data.body.searchResults.results[i].name
                                 var hotelLocation = hotelPropertiesData.data.body.searchResults.results[i].coordinate
-                                document.querySelector(".HR-0".concat(i+1-count)+"-map").src = `https://www.google.com/maps/embed/v1/streetview?location=${hotelLocation["lat"]},${hotelLocation["lon"]}&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU`
+                                document.querySelector(".HR-0".concat(i + 1 - count) + "-map").src = `https://www.google.com/maps/embed/v1/streetview?location=${hotelLocation["lat"]},${hotelLocation["lon"]}&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU`
                             }
                         }
                     }
@@ -137,8 +137,8 @@ let weatherDataCall = function () {
 }
 
 
-window.onload = function () {
-    weatherDataCall();
-    hotelDataCall();
-}
+// window.onload = function () {
+//     weatherDataCall();
+//     hotelDataCall();
+// }
 
