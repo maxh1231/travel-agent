@@ -1,11 +1,11 @@
 ## travel-agent
 
-## description 
+## Description 
 
 User can input their trip destination. The application will then search available hotels with their price in the area.
 The application will also search the 5 day forecast weather of the area.
 
-## technologies used 
+## Technologies used 
 
 Hotel Pricing API:
 
@@ -23,7 +23,7 @@ Creator : Dark Sky
 
 Weather API - https://rapidapi.com/darkskyapis/api/dark-sky/
 
-## screenshot
+## Screenshot
 
 WireFrame
 
@@ -41,6 +41,6 @@ The Application will first start on the index.html.
 The Application will display the search result on the hotel.html.
 ![Hotel Page](screenshots/Hotel.PNG "Result show on the Hotel Page")
 
-## link to deployed application
+## Link to deployed application
 
 Application Link : https://maxh1231.github.io/travel-agent/
