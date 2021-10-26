@@ -144,6 +144,20 @@ hero h3 {
     border: 2px solid var(--second-color);
 }
 
+footer {
+    background-color: var(--fourth-color);
+    color: var(--first-color);
+}
+footer h3 {
+    font-size: 25px;
+}
+footer div {
+    font-size: 15px;
+}
+footer h3, footer div {
+    padding: 10px;
+}
+
 /* hotel.html styles */
 
 main {
@@ -161,24 +175,31 @@ main {
 }
 
 #weather-results-container {
-    display: flex;
     justify-content: center;
-    
-    
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 #WR-01, #WR-02, #WR-03, #WR-04, #WR-05 {
     display: flex;
-    justify-content: space-between;
+    flex: 1;
+    justify-content: center;
     align-items: center;
     padding: 10px 25px;
-    margin: 0px 10px;
+    margin: 10px;
+    min-width: 200px;
     color: antiquewhite;
     background-color: var(--second-color);
     border: 1px solid var(--second-color);
     border-radius: 5px;
     height: 250px;
 
+}
+
+.WR-date, .HR-name {
+    font-weight: 800;
+    font-size: 1.7rem;
 }
 
 .WR-detail  {
@@ -193,19 +214,27 @@ main {
 
 .search-result-display {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
 .hotel-result {
     display: flex; 
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
+    margin: 0 auto;
+}
+.hotel-result h4 {
+    font-size: 20px;
+    font-style: bold;
+    padding-bottom: 20px;
 }
 
 #HR-01, #HR-02, #HR-03, #HR-04, #HR-05 {
     padding: 10px 25px;
-    margin: 0px 10px;
+    margin: 10px;
     color: antiquewhite;
     background-color: var(--second-color);
     border: 1px solid var(--second-color);
@@ -217,14 +246,12 @@ main {
     height: 642px;
 }
 
-.HR-detail  {
+/* .HR-detail  {
     height: 100%;
-     display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
-    font-size: 1.25rem;
-    text-align: right;
- }
+ } */
 
 iframe {
     width: 250px;
@@ -234,4 +261,15 @@ iframe {
 .HR-picture {
     width: 250px;
     height: 250px;
+    padding-top: 20px;
+}
+
+@media screen and (max-width: 980px) {
+    html,body {
+        width: 100%;
+        height:100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
 }

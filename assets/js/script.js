@@ -35,7 +35,7 @@ var loadPreviousSearch = function () {
 	var previousSearchRecord = JSON.parse(previousSearch);
 
 	// Load the previous search record if there is any.
-	if (previousSearchRecord[0]) {
+	if ((previousSearchRecord) && (previousSearchRecord[0])) {
 		
 		for (var i = 0; i < previousSearchRecord.length; i++)
 		{

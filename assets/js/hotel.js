@@ -27,19 +27,28 @@ let hotelDataCall = function () {
             })
                 .then(response => response.json())
                 .then(function (hotelPropertiesData) {
-                    //placeholder for now until update on hotel.html
                     console.log(hotelPropertiesData.data.body.searchResults.results)
-                    document.querySelector(".HR-picture").src = hotelPropertiesData.data.body.searchResults.results[0].optimizedThumbUrls.srpDesktop
-                    document.querySelector(".HR-price").textContent = hotelPropertiesData.data.body.searchResults.results[0].ratePlan.price.current
-                    document.querySelector(".HR-rating").textContent = hotelPropertiesData.data.body.searchResults.results[0].starRating + " star"
-                    document.querySelector(".HR-address").textContent = hotelPropertiesData.data.body.searchResults.results[0].address.streetAddress + ", "
-                        + hotelPropertiesData.data.body.searchResults.results[0].address.locality + ", " + hotelPropertiesData.data.body.searchResults.results[0].address.region + " " + hotelPropertiesData.data.body.searchResults.results[0].address.postalCode
-                    document.querySelector(".HR-name").textContent = hotelPropertiesData.data.body.searchResults.results[0].name
-                    var hotelLocation = hotelPropertiesData.data.body.searchResults.results[0].coordinate
-                    //document.querySelector(".HR-map").src = "https://www.google.com/maps/embed/v1/streetview?location=40.7719,-111.8764&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU"
-                    document.querySelector(".HR-map").src = `https://www.google.com/maps/embed/v1/streetview?location=${hotelLocation["lat"]},${hotelLocation["lon"]}&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU`
+                    var resultsLength = hotelPropertiesData.data.body.searchResults.results.length
+                    var count = 0;
+                    for (let i = 0; i <= resultsLength; i++){
+                        if ((document.querySelector(".HR-0".concat(i+1-count)+"-price").textContent) === null){
+                            return;
+                        } else {
+                            if (hotelPropertiesData.data.body.searchResults.results[i].address.streetAddress === undefined){
+                                count++;
+                            } else {
+                                document.querySelector(".HR-0".concat(i+1-count)+"-picture").src = hotelPropertiesData.data.body.searchResults.results[i].optimizedThumbUrls.srpDesktop
+                                document.querySelector(".HR-0".concat(i+1-count)+"-price").textContent = hotelPropertiesData.data.body.searchResults.results[i].ratePlan.price.current
+                                document.querySelector(".HR-0".concat(i+1-count)+"-rating").textContent = hotelPropertiesData.data.body.searchResults.results[i].starRating + " star"
+                                document.querySelector(".HR-0".concat(i+1-count)+"-address").textContent = hotelPropertiesData.data.body.searchResults.results[i].address.streetAddress + ", "
+                                    + hotelPropertiesData.data.body.searchResults.results[i].address.locality + ", " + hotelPropertiesData.data.body.searchResults.results[i].address.region + " " + hotelPropertiesData.data.body.searchResults.results[i].address.postalCode
+                                document.querySelector(".HR-0".concat(i+1-count)+"-name").textContent = hotelPropertiesData.data.body.searchResults.results[i].name
+                                var hotelLocation = hotelPropertiesData.data.body.searchResults.results[i].coordinate
+                                document.querySelector(".HR-0".concat(i+1-count)+"-map").src = `https://www.google.com/maps/embed/v1/streetview?location=${hotelLocation["lat"]},${hotelLocation["lon"]}&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU`
+                            }
+                        }
+                    }
                 })
-
                 .catch(err => {
                     console.error(err);
                 });
@@ -76,12 +85,47 @@ let weatherDataCall = function () {
                 .then(response => response.json())
                 .then(function (weatherData) {
                     console.log(weatherData);
-                    document.querySelector(".WR-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[0].icon;
-                    document.querySelector(".WR-date").textContent = weatherData.response[0].periods[0].dateTimeISO
-                    document.querySelector(".WR-temperature").textContent = "High: " + weatherData.response[0].periods[0].maxTempF + " Low: " + weatherData.response[0].periods[0].minTempF
-                    document.querySelector(".WR-wind").textContent = weatherData.response[0].periods[0].windSpeedMPH + " MPH"
-                    document.querySelector(".WR-humidity").textContent = weatherData.response[0].periods[0].humidity + " %"
-                    document.querySelector(".WR-uv-index").textContent = weatherData.response[0].periods[0].uvi
+
+                    // Day 1
+                    document.getElementById("WR-01-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[0].icon;
+                    document.getElementById("WR-01-date").textContent = moment().format("M/DD/YYYY");
+                    document.getElementById("WR-01-temp").textContent = "High: " + weatherData.response[0].periods[0].maxTempF + " Low: " + weatherData.response[0].periods[0].minTempF
+                    document.getElementById("WR-01-wind").textContent = weatherData.response[0].periods[0].windSpeedMPH + " MPH"
+                    document.getElementById("WR-01-humidity").textContent = weatherData.response[0].periods[0].humidity + " %"
+                    document.getElementById("WR-01-index").textContent = weatherData.response[0].periods[0].uvi + " UVI"
+
+                    // Day 2
+                    document.getElementById("WR-02-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[1].icon;
+                    document.getElementById("WR-02-date").textContent = moment().add(1, 'days').format("M/DD/YYYY");
+                    document.getElementById("WR-02-temp").textContent = "High: " + weatherData.response[0].periods[1].maxTempF + " Low: " + weatherData.response[0].periods[1].minTempF
+                    document.getElementById("WR-02-wind").textContent = weatherData.response[0].periods[1].windSpeedMPH + " MPH"
+                    document.getElementById("WR-02-humidity").textContent = weatherData.response[0].periods[1].humidity + " %"
+                    document.getElementById("WR-02-index").textContent = weatherData.response[0].periods[1].uvi + " UVI"
+
+                    // Day 3
+                    document.getElementById("WR-03-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[2].icon;
+                    document.getElementById("WR-03-date").textContent = moment().add(2, 'days').format("M/DD/YYYY");
+                    document.getElementById("WR-03-temp").textContent = "High: " + weatherData.response[0].periods[2].maxTempF + " Low: " + weatherData.response[0].periods[2].minTempF
+                    document.getElementById("WR-03-wind").textContent = weatherData.response[0].periods[2].windSpeedMPH + " MPH"
+                    document.getElementById("WR-03-humidity").textContent = weatherData.response[0].periods[2].humidity + " %"
+                    document.getElementById("WR-03-index").textContent = weatherData.response[0].periods[2].uvi + " UVI"
+
+                    // Day 4
+                    document.getElementById("WR-04-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[3].icon;
+                    document.getElementById("WR-04-date").textContent = moment().add(3, 'days').format("M/DD/YYYY");
+                    document.getElementById("WR-04-temp").textContent = "High: " + weatherData.response[0].periods[3].maxTempF + " Low: " + weatherData.response[0].periods[3].minTempF
+                    document.getElementById("WR-04-wind").textContent = weatherData.response[0].periods[3].windSpeedMPH + " MPH"
+                    document.getElementById("WR-04-humidity").textContent = weatherData.response[0].periods[3].humidity + " %"
+                    document.getElementById("WR-04-index").textContent = weatherData.response[0].periods[3].uvi + " UVI"
+
+                    // Day 5
+                    document.getElementById("WR-05-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[4].icon;
+                    document.getElementById("WR-05-date").textContent = moment().add(4, 'days').format("M/DD/YYYY");
+                    document.getElementById("WR-05-temp").textContent = "High: " + weatherData.response[0].periods[4].maxTempF + " Low: " + weatherData.response[0].periods[4].minTempF
+                    document.getElementById("WR-05-wind").textContent = weatherData.response[0].periods[4].windSpeedMPH + " MPH"
+                    document.getElementById("WR-05-humidity").textContent = weatherData.response[0].periods[4].humidity + " %"
+                    document.getElementById("WR-05-index").textContent = weatherData.response[0].periods[4].uvi + " UVI"
+
 
 
 
@@ -95,6 +139,10 @@ let weatherDataCall = function () {
 
 window.onload = function () {
     weatherDataCall();
+<<<<<<< HEAD
     // hotelDataCall();
+=======
+    hotelDataCall();
+>>>>>>> develop
 }
 
