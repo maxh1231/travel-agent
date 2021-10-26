@@ -67,7 +67,7 @@ hero h3 {
     background-size: cover;
     border-bottom: 10px var(--first-color) solid;
     text-align: center;
-
+    align-items: center;
     padding-left: 25%;
     padding-right: 25%;
     padding-bottom: 25%;
@@ -85,12 +85,13 @@ hero h3 {
 }
 .card-body {
     background-color: var(--fourth-color);
-    min-width: 100%;
+    max-width: 75%;
     color: antiquewhite;
-    /* margin-left: 25%;
-    margin-right: 25%; */
+    margin-left: 25%;
+    margin-right: 25%;
     border-radius: 20px;
-    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
 }
 .input-group {
     padding: 5px;
@@ -186,7 +187,8 @@ main {
     align-items: center;
     padding: 10px 25px;
     margin: 10px;
-    min-width: 200px;
+    min-width: 257px;
+    max-width:326px;
     color: antiquewhite;
     background-color: var(--second-color);
     border: 1px solid var(--second-color);
@@ -215,6 +217,13 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.previous-search-display {
+    background-color: var(--third-color);
+}
+#previous-search-title {
+    font-size: 35px;
 }
 
 .hotel-result {
@@ -269,5 +278,29 @@ iframe {
         margin: 0;
         padding: 0;
         overflow-x: hidden;
+    }
+
+    .card {
+        padding: 0;
+        align-items: center;
+    }
+    .card-body {
+        /* width: 100%; */
+        margin: auto;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    .weather-detail {
+
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .card-body {
+        margin: 0 auto;
+    }
+    .card-header {
+        padding-top: 0;
     }
 }
