@@ -108,18 +108,16 @@ hero h3 {
     padding: 5px;
 }
 
-#hotel-results-container {
+/* #hotel-results-container {
     display: flex;
     flex-direction: column;
     width: 50%;
     justify-content: center; 
     text-align: center;
-}
+} */
 
 #weather-results-container {
     display: flex;
-    flex-direction: column;
-    width: 50%;
     justify-content: center;
     text-align: center;
 
