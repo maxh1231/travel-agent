@@ -139,10 +139,6 @@ let weatherDataCall = function () {
 
 window.onload = function () {
     weatherDataCall();
-<<<<<<< HEAD
-    // hotelDataCall();
-=======
     hotelDataCall();
->>>>>>> develop
 }
 
