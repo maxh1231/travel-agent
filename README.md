@@ -8,13 +8,19 @@ The application will also search the 5 day forecast weather of the area.
 ## technologies used 
 
 Hotel Pricing API:
+
 Name : Hotels
+
 Creator : Api Dojo
+
 Link : https://rapidapi.com/apidojo/api/hotels4/
 
 Weather API
+
 Name : Dark Sky
+
 Creator : Dark Sky
+
 Weather API - https://rapidapi.com/darkskyapis/api/dark-sky/
 
 ## screenshot
