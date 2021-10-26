@@ -18,7 +18,7 @@ let hotelDataCall = function () {
         .then(response => response.json())
         .then(function (hotelData) {
             var city_destinationId = hotelData.suggestions[0].entities[0].destinationId
-            fetch(`https://hotels4.p.rapidapi.com/properties/list?destinationId=${city_destinationId}&pageNumber=1&pageSize=10&checkIn=2021-10-30&checkOut=2021-10-31&adults1=1&sortOrder=PRICE&locale=en_US&currency=USD`, {
+            fetch(`https://hotels4.p.rapidapi.com/properties/list?destinationId=${city_destinationId}&pageNumber=1&pageSize=10&checkIn=2021-10-30&checkOut=2021-10-31&adults1=1&sortOrder=sortOrder=BEST_SELLER&locale=en_US&currency=USD`, {
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "hotels4.p.rapidapi.com",
