@@ -137,6 +137,7 @@ let weatherDataCall = function () {
 }
 
 
+
 // window.onload = function () {
 //     weatherDataCall();
 //     hotelDataCall();
