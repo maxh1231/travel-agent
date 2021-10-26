@@ -171,6 +171,11 @@ main {
 
 }
 
+.WR-date, .HR-name {
+    font-weight: 800;
+    font-size: 1.7rem;
+}
+
 .WR-detail  {
    height: 100%;
     display: flex;
