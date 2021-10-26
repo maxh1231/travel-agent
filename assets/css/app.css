@@ -187,7 +187,8 @@ main {
     align-items: center;
     padding: 10px 25px;
     margin: 10px;
-    min-width: 200px;
+    min-width: 257px;
+    max-width:326px;
     color: antiquewhite;
     background-color: var(--second-color);
     border: 1px solid var(--second-color);
@@ -289,10 +290,17 @@ iframe {
         margin-left: 25%;
         margin-right: 25%;
     }
+
+    .weather-detail {
+
+    }
 }
 
 @media screen and (max-width: 510px) {
     .card-body {
         margin: 0 auto;
+    }
+    .card-header {
+        padding-top: 0;
     }
 }
