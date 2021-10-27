@@ -10,15 +10,23 @@ var updatePreviousSearch = function () {
 	var previousSearch = localStorage.getItem("previousSearch");
 	var temp = [];
 
-	var legitFlag = localStorage.getItem("legitSearch");
-	if (!legitFlag) {
-		legitFlag = true;
+	var legitFlag = window.location.href.split("=");
+
+	if ((legitFlag.length != 1) && (legitFlag[1] == "true")) {
+		document.getElementById("user-form").reset();
+		var newSearchItem = JSON.parse(newSearch);
+		var elementCheck = document.getElementById("errorMessage");
+		if (elementCheck) {
+			elementCheck.textContent = newSearchItem + " cannot be FOUND!";
+		} else {
+			var errorInputMessage = document.createElement("h2");
+			errorInputMessage.setAttribute("id", "errorMessage");
+			errorInputMessage.setAttribute("style", "color:red; font-weight:bold;");
+			errorInputMessage.textContent = newSearchItem + " cannot be FOUND!";
+			userformEl.appendChild(errorInputMessage);
+		}
+		localStorage.setItem("newSearch", "");
 	} else {
-		legitFlag = JSON.parse(legitFlag);
-	}
-
-	if (legitFlag) {
-
 		if (newSearch) {
 			// If there is newSearch data, try to update previousSearch
 			var newSearchItem = JSON.parse(newSearch);
@@ -49,19 +57,8 @@ var updatePreviousSearch = function () {
 				localStorage.setItem("newSearch", "");
 			}
 		} 
-	} else {
-		document.getElementById("user-form").reset();
-		var elementCheck = document.getElementById("errorMessage");
-		if (elementCheck) {
-			elementCheck.textContent += "!";
-		} else {
-			var errorInputMessage = document.createElement("h2");
-			errorInputMessage.setAttribute("id", "errorMessage");
-			errorInputMessage.setAttribute("style", "color:red; font-weight:bold;");
-			errorInputMessage.textContent = "Location cannot be FOUND!";
-			userformEl.appendChild(errorInputMessage);
-		}
 	}
+
 }
 
 // Display All Previous Search Record
@@ -155,7 +152,6 @@ submitSearchBtn.addEventListener("click", function (event) {
 	if (targetCity.length != 0) {
 		// If input value is not empty string, store value and move to hotel.html
 		localStorage.setItem("newSearch", JSON.stringify(targetCity));
-		localStorage.setItem("legitSearch", true);
 		targetCity = targetCity.replaceAll(" ", "+");
 		var hrefLink = "./hotel.html?location=" + targetCity;
 		document.getElementById("user-form").reset();
