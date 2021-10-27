@@ -2,6 +2,7 @@ var submitSearchBtn = document.getElementById("searchBtn");
 var searchInputValue = document.getElementById("location");
 
 var PSDcontainer = document.getElementsByClassName("PSD-container");
+var userformEl = document.getElementById("user-form");
 
 // Update the "previousSearch" by putting "newSearch" into it, then clear out "previousSearch"
 var updatePreviousSearch = function () {
@@ -9,21 +10,45 @@ var updatePreviousSearch = function () {
 	var previousSearch = localStorage.getItem("previousSearch");
 	var temp = [];
 
-	if (newSearch) {
-		// If there is newSearch data, try to update previousSearch
-		var newSearchItem = JSON.parse(newSearch);
-		if (!previousSearch) {
-			// If previousSearch is empty, put newSearch data into array and store in previousSearch
-			temp.push(newSearchItem)
-			localStorage.setItem("previousSearch", JSON.stringify(temp));
-		} else {
-			// If there is previousSearch data, push newSearch data into it
-			var previousSearchRecord = JSON.parse(previousSearch);
-			previousSearchRecord.push(newSearchItem);
-			localStorage.setItem("previousSearch", JSON.stringify(previousSearchRecord));
-		}
-		// Clear out newSearch data in case user refresh
-		localStorage.setItem("newSearch", "");
+	var legitFlag = localStorage.getItem("legitSearch");
+	if (!legitFlag) {
+		legitFlag = true;
+	} else {
+		legitFlag = JSON.parse(legitFlag);
+	}
+
+	if (legitFlag) {
+
+		if (newSearch) {
+			// If there is newSearch data, try to update previousSearch
+			var newSearchItem = JSON.parse(newSearch);
+			if (newSearchItem != "") {
+				if (!previousSearch) {
+					// If previousSearch is empty, put newSearch data into array and store in previousSearch
+					temp.push(newSearchItem)
+					localStorage.setItem("previousSearch", JSON.stringify(temp));
+				} else {
+					// If there is previousSearch data, push newSearch data into it
+					var repeatFlag = false;
+					var previousSearchRecord = JSON.parse(previousSearch);
+					// Compare if there is a record in previous Search already
+					for (var i = 0; i < previousSearchRecord.length; i++) {
+						var newSearchItemString = newSearchItem.split(" ").join("");
+						var previousSearchRecordString = previousSearchRecord[i].split(" ").join("");
+						if (newSearchItemString == previousSearchRecordString) {
+							repeatFlag = true;
+						}
+					}
+					// Only add when there is no duplicate record
+					if (!repeatFlag) {
+						previousSearchRecord.push(newSearchItem);
+						localStorage.setItem("previousSearch", JSON.stringify(previousSearchRecord));
+					}
+				}
+				// Clear out newSearch data in case user refresh
+				localStorage.setItem("newSearch", "");
+			}
+		} 
 	} 
 }
 
@@ -104,12 +129,39 @@ var loadPreviousSearch = function () {
 
 }
 
+var loadIndexPage = function () {
+	updatePreviousSearch();
+	loadPreviousSearch();
+}
 
 // Saved the search location to Local Storage "newSearch"
-submitSearchBtn.addEventListener("click", function () {
+submitSearchBtn.addEventListener("click", function (event) {
+	event.preventDefault();
 
-	localStorage.setItem("newSearch", JSON.stringify(searchInputValue.value));
-	//window.location.href = "./hotel.html"
+	var targetCity = searchInputValue.value.toUpperCase().trim();
+
+	if (targetCity.length != 0) {
+		// If input value is not empty string, store value and move to hotel.html
+		localStorage.setItem("newSearch", JSON.stringify(targetCity));
+		localStorage.setItem("legitSearch", true);
+		targetCity = targetCity.replaceAll(" ", "+");
+		var hrefLink = "./hotel.html?location=" + targetCity;
+		document.getElementById("user-form").reset();
+		window.location.href = hrefLink;
+	} else {
+		// If input value is empty string, display Error Message
+		document.getElementById("user-form").reset();
+		var elementCheck = document.getElementById("errorMessage");
+		if (elementCheck) {
+			elementCheck.textContent += "!";
+		} else {
+			var errorInputMessage = document.createElement("h3");
+			errorInputMessage.setAttribute("id", "errorMessage");
+			errorInputMessage.setAttribute("style", "color:red; font-weight:bold;");
+			errorInputMessage.textContent = "Location cannot be EMPTY!";
+			userformEl.appendChild(errorInputMessage);
+		}
+	}
 
 });
 
@@ -148,5 +200,5 @@ PSDcontainer[0].addEventListener("click", function(event) {
 
 })
 
-updatePreviousSearch();
-loadPreviousSearch();
+loadIndexPage();
+

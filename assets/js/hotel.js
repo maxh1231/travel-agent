@@ -51,6 +51,7 @@ let hotelDataCall = function () {
                 })
                 .catch(err => {
                     console.error(err);
+                    localStorage.setItem("legitSearch", false);
                 });
         })
 
@@ -132,6 +133,7 @@ let weatherDataCall = function () {
                 })
                 .catch(err => {
                     console.error(err);
+                    localStorage.setItem("legitSearch", false);
                 });
         })
 }
