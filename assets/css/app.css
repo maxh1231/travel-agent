@@ -105,13 +105,16 @@ hero h3 {
     color: antiquewhite;
     margin-left: 25%;
     margin-right: 25%;
-    border-radius: 20px;
+    border-radius: 10px;
     justify-content: center;
     align-items: center;
+    
 }
 .input-group {
     padding: 5px;
 }
+
+
 
 /* #hotel-results-container {
     display: flex;
@@ -141,7 +144,9 @@ hero h3 {
 }
 .form-input {
     font-size: 20px;
-    border-radius: 50px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
 }
 
 #searchBtn {
