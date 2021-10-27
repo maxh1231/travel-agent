@@ -49,7 +49,19 @@ var updatePreviousSearch = function () {
 				localStorage.setItem("newSearch", "");
 			}
 		} 
-	} 
+	} else {
+		document.getElementById("user-form").reset();
+		var elementCheck = document.getElementById("errorMessage");
+		if (elementCheck) {
+			elementCheck.textContent += "!";
+		} else {
+			var errorInputMessage = document.createElement("h2");
+			errorInputMessage.setAttribute("id", "errorMessage");
+			errorInputMessage.setAttribute("style", "color:red; font-weight:bold;");
+			errorInputMessage.textContent = "Location cannot be FOUND!";
+			userformEl.appendChild(errorInputMessage);
+		}
+	}
 }
 
 // Display All Previous Search Record
@@ -153,9 +165,9 @@ submitSearchBtn.addEventListener("click", function (event) {
 		document.getElementById("user-form").reset();
 		var elementCheck = document.getElementById("errorMessage");
 		if (elementCheck) {
-			elementCheck.textContent += "!";
+			elementCheck.textContent = "Location cannot be EMPTY!";
 		} else {
-			var errorInputMessage = document.createElement("h3");
+			var errorInputMessage = document.createElement("h2");
 			errorInputMessage.setAttribute("id", "errorMessage");
 			errorInputMessage.setAttribute("style", "color:red; font-weight:bold;");
 			errorInputMessage.textContent = "Location cannot be EMPTY!";
