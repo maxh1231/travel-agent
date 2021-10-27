@@ -52,8 +52,8 @@ let hotelDataCall = function () {
                 })
                 .catch(err => {
                     console.error(err);
-                    var hrefLink = "./index.html?error=true";
-                    window.location.href = hrefLink;
+                    // var hrefLink = "./index.html?error=true";
+                    // window.location.href = hrefLink;
                 });
         })
 
@@ -135,18 +135,18 @@ let weatherDataCall = function () {
                 })
                 .catch(err => {
                     console.error(err);
-                    var hrefLink = "./index.html?error=true";
-                    window.location.href = hrefLink;
+                    // var hrefLink = "./index.html?error=true";
+                    // window.location.href = hrefLink;
                 });
         })
 }
 
-clickReturnBtn.addEventListener("click", function (event) {
-    event.preventDefault();
+// clickReturnBtn.addEventListener("click", function (event) {
+//     event.preventDefault();
 
-    var hrefLink = "./index.html";
-    window.location.href = hrefLink;
-})
+//     var hrefLink = "./index.html";
+//     window.location.href = hrefLink;
+// })
 
 
 window.onload = function () {
