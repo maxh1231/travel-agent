@@ -6,12 +6,12 @@
     --fifth-color: #ffb703;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
+
 
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     box-sizing: border-box;
 }
 
@@ -27,11 +27,12 @@ navbar {
     align-items: center;
     color: antiquewhite;
     background-color: var(--second-color);
-    font-family: 'Crimson Text', serif;
+    
 }
-navbar h1 {
+ h1 {
     font-size: 50px;
-    font-family: 'Crimson Text', serif;
+    font-weight: 700;
+    
 }
 navbar ul {
     display: inline-flex;
@@ -89,7 +90,9 @@ hero h3 {
 .card-header {
     display: block;
     font-size: 70px;
-    color: var(--third-color);
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    color: var(--second-color);
     box-shadow: none;
     margin-bottom: 200px;
     padding-top: 50px;
@@ -97,7 +100,7 @@ hero h3 {
     font-style: italic;
 }
 .card-body {
-    background-color: var(--fourth-color);
+    background-color: var(--second-color);
     max-width: 75%;
     color: antiquewhite;
     margin-left: 25%;
@@ -143,8 +146,8 @@ hero h3 {
 
 #searchBtn {
     padding: 5px 15px;
-    background-color: var(--second-color);
-    color: antiquewhite;
+    background-color: white;
+    color: var(--second-color);
     border: 1px solid var(--second-color);
     border-radius: 5px;
     font-size: 1.25rem;
@@ -152,8 +155,9 @@ hero h3 {
 
 #searchBtn:hover {
     cursor: pointer;
-    background-color: var(--fourth-color);
-    border: 2px solid var(--second-color);
+    background-color: var(--second-color);
+    border: 2px solid white;
+    color: white;
 }
 
 footer {
@@ -172,16 +176,9 @@ footer h3, footer div {
 
 /* hotel.html styles */
 
-.logo h1{
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-}
 
-.logo h1:hover{
-    cursor: pointer;
-    color: grey;
-}
+
+
 
 main {
     background-image: url("../image/Sunset_Freedom_Tower.jpg");
@@ -193,7 +190,7 @@ main {
     text-align: center;
     font-size: 3rem;
     font-weight: 600;
-    margin-top: 30px;
+    padding-top: 30px;
     margin-bottom: 30px;
 }
 
@@ -317,9 +314,7 @@ iframe {
         margin-right: 25%;
     }
 
-    .weather-detail {
-
-    }
+    
 }
 
 @media screen and (max-width: 510px) {
