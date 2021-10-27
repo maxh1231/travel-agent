@@ -11,7 +11,7 @@ let hotelDataCall = function () {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "hotels4.p.rapidapi.com",
-            "x-rapidapi-key": "cb11f2ee2fmsha08fecdbc24fd3cp11b47bjsn82e3b7599a4d"
+            "x-rapidapi-key": "26aa5aaa64msh7c71403c8404b50p1f70d8jsn250c3dfeb42e"
         }
     })
 
@@ -22,7 +22,7 @@ let hotelDataCall = function () {
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "hotels4.p.rapidapi.com",
-                    "x-rapidapi-key": "cb11f2ee2fmsha08fecdbc24fd3cp11b47bjsn82e3b7599a4d"
+                    "x-rapidapi-key": "26aa5aaa64msh7c71403c8404b50p1f70d8jsn250c3dfeb42e"
                 }
             })
                 .then(response => response.json())
@@ -138,8 +138,8 @@ let weatherDataCall = function () {
 
 
 
-// window.onload = function () {
-//     weatherDataCall();
-//     hotelDataCall();
-// }
+window.onload = function () {
+    weatherDataCall();
+    hotelDataCall();
+}
 

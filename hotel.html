@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="assets/css/app.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Qahiri&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
 
     <title>Travel Agent - Search Result</title>
     
@@ -24,14 +25,22 @@
                 <h1>Travel Agent</h1>
             </a>
 
-            <!-- <h2 class="page-Title">Travel Agent - Search Result</h2> -->
+            <hero>
+                <!-- Page Title -->
+                <h2 class="page-Title">
+                    Hotel and Weather Search Engine
+                </h2>
+                <h3 class="page-Description">
+                    This search engine will help you to search available hotels and forecast weather for your trip.
+                </h3>
+            </hero>
 
             <ul class="navbar-List">
                 <li>
-                    <a href="#hotel-results-container">Available Hotels</a>
+                    <a class="navbar-item" href="#hotel-results-container">Available Hotels</a>
                 </li>
                 <li>
-                    <a href="#weather-results-container">Weather Forecast</a>
+                    <a class="navbar-item" href="#weather-results-container">Weather Forecast</a>
                 </li>
             </ul>
         </navbar>
@@ -262,6 +271,7 @@
 
     <!-- JS -->
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="assets/js/hotel.js"></script>
 </body>
 
