@@ -1,5 +1,6 @@
 var apiQuery = localStorage.getItem(localStorage.key(0));
 var userInput = new URLSearchParams(window.location.search).get("location");
+var clickReturnBtn = document.getElementById("returnBtn");
 
 var city_destinationId;
 
@@ -30,7 +31,7 @@ let hotelDataCall = function () {
                     console.log(hotelPropertiesData.data.body.searchResults.results)
                     var resultsLength = hotelPropertiesData.data.body.searchResults.results.length
                     var count = 0;
-                    for (let i = 0; i <= resultsLength; i++){
+                    for (let i = 0; i < resultsLength; i++){
                         if ((document.querySelector(".HR-0".concat(i+1-count)+"-price").textContent) === null){
                             return;
                         } else {
@@ -51,6 +52,8 @@ let hotelDataCall = function () {
                 })
                 .catch(err => {
                     console.error(err);
+                    var hrefLink = "./index.html?error=true";
+                    window.location.href = hrefLink;
                 });
         })
 
@@ -132,10 +135,18 @@ let weatherDataCall = function () {
                 })
                 .catch(err => {
                     console.error(err);
+                    var hrefLink = "./index.html?error=true";
+                    window.location.href = hrefLink;
                 });
         })
 }
 
+clickReturnBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+
+	var hrefLink = "./index.html";
+    window.location.href = hrefLink;
+})
 
 window.onload = function () {
     weatherDataCall();
