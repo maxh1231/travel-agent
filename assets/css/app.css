@@ -260,10 +260,11 @@ main {
 .PSD-container {
     background-color: var(--third-color);
 }
+
 #previous-search-title {
     text-align: center;
     
-}
+
     margin-left: 25%;
     margin-right: 25%;
     border-radius: 15px;
