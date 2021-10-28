@@ -6,7 +6,9 @@
     --fifth-color: #ffb703;
 }
 
-
+html {
+    scroll-behavior: smooth;
+}
 
 * {
     margin: 0;
