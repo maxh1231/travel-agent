@@ -131,6 +131,7 @@ var loadPreviousSearch = function () {
 		// Display No Record Message
 		var displayTitle = document.createElement("h3");
 		displayTitle.setAttribute("class", "noRecordMessage");
+		displayTitle.setAttribute("style", "font-size : 20px; font-weight : bold; text-align : center");
 		displayTitle.textContent = "There is no previous search record";
 		PSDcontainer[0].appendChild(displayTitle);
 	}
