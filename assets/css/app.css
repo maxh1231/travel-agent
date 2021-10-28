@@ -7,7 +7,6 @@
 }
 
 
-
 * {
     margin: 0;
     padding: 0;
@@ -260,6 +259,7 @@ main {
 #previous-search-title {
     text-align: center;
     font-size: 40px;
+    
 }
 
 .PSD-item {
