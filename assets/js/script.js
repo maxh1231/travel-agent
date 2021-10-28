@@ -109,11 +109,11 @@ var loadPreviousSearch = function () {
 			displayanswer.setAttribute("class", "display-answer");
 			displayanswer.textContent = previousSearchRecord[i];
 			searchBtn.setAttribute("type", "button");
-			searchBtn.setAttribute("class", "btn");
+			searchBtn.setAttribute("class", "btn button is-link");
 			searchBtn.setAttribute("id", searchBtnID);
 			searchBtn.textContent = "Search Again";
 			deleteBtn.setAttribute("type", "button");
-			deleteBtn.setAttribute("class", "btn");
+			deleteBtn.setAttribute("class", "btn button is-danger");
 			deleteBtn.setAttribute("id", deleteBtnID);
 			deleteBtn.textContent = "Delete Record";
 
