@@ -1,5 +1,6 @@
 var apiQuery = localStorage.getItem(localStorage.key(0));
 var userInput = new URLSearchParams(window.location.search).get("location");
+var clickReturnBtn = document.getElementById("returnBtn");
 
 var city_destinationId;
 
@@ -11,7 +12,7 @@ let hotelDataCall = function () {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "hotels4.p.rapidapi.com",
-            "x-rapidapi-key": "cb11f2ee2fmsha08fecdbc24fd3cp11b47bjsn82e3b7599a4d"
+            "x-rapidapi-key": "26aa5aaa64msh7c71403c8404b50p1f70d8jsn250c3dfeb42e"
         }
     })
 
@@ -22,7 +23,7 @@ let hotelDataCall = function () {
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "hotels4.p.rapidapi.com",
-                    "x-rapidapi-key": "cb11f2ee2fmsha08fecdbc24fd3cp11b47bjsn82e3b7599a4d"
+                    "x-rapidapi-key": "26aa5aaa64msh7c71403c8404b50p1f70d8jsn250c3dfeb42e"
                 }
             })
                 .then(response => response.json())
@@ -30,27 +31,29 @@ let hotelDataCall = function () {
                     console.log(hotelPropertiesData.data.body.searchResults.results)
                     var resultsLength = hotelPropertiesData.data.body.searchResults.results.length
                     var count = 0;
-                    for (let i = 0; i <= resultsLength; i++){
-                        if ((document.querySelector(".HR-0".concat(i+1-count)+"-price").textContent) === null){
+                    for (let i = 0; i <= resultsLength; i++) {
+                        if ((document.querySelector(".HR-0".concat(i + 1 - count) + "-price").textContent) === null) {
                             return;
                         } else {
-                            if (hotelPropertiesData.data.body.searchResults.results[i].address.streetAddress === undefined){
+                            if (hotelPropertiesData.data.body.searchResults.results[i].address.streetAddress === undefined) {
                                 count++;
                             } else {
-                                document.querySelector(".HR-0".concat(i+1-count)+"-picture").src = hotelPropertiesData.data.body.searchResults.results[i].optimizedThumbUrls.srpDesktop
-                                document.querySelector(".HR-0".concat(i+1-count)+"-price").textContent = hotelPropertiesData.data.body.searchResults.results[i].ratePlan.price.current
-                                document.querySelector(".HR-0".concat(i+1-count)+"-rating").textContent = hotelPropertiesData.data.body.searchResults.results[i].starRating + " star"
-                                document.querySelector(".HR-0".concat(i+1-count)+"-address").textContent = hotelPropertiesData.data.body.searchResults.results[i].address.streetAddress + ", "
+                                document.querySelector(".HR-0".concat(i + 1 - count) + "-picture").src = hotelPropertiesData.data.body.searchResults.results[i].optimizedThumbUrls.srpDesktop
+                                document.querySelector(".HR-0".concat(i + 1 - count) + "-price").textContent = hotelPropertiesData.data.body.searchResults.results[i].ratePlan.price.current
+                                document.querySelector(".HR-0".concat(i + 1 - count) + "-rating").textContent = hotelPropertiesData.data.body.searchResults.results[i].starRating + " star"
+                                document.querySelector(".HR-0".concat(i + 1 - count) + "-address").textContent = hotelPropertiesData.data.body.searchResults.results[i].address.streetAddress + ", "
                                     + hotelPropertiesData.data.body.searchResults.results[i].address.locality + ", " + hotelPropertiesData.data.body.searchResults.results[i].address.region + " " + hotelPropertiesData.data.body.searchResults.results[i].address.postalCode
-                                document.querySelector(".HR-0".concat(i+1-count)+"-name").textContent = hotelPropertiesData.data.body.searchResults.results[i].name
+                                document.querySelector(".HR-0".concat(i + 1 - count) + "-name").textContent = hotelPropertiesData.data.body.searchResults.results[i].name
                                 var hotelLocation = hotelPropertiesData.data.body.searchResults.results[i].coordinate
-                                document.querySelector(".HR-0".concat(i+1-count)+"-map").src = `https://www.google.com/maps/embed/v1/streetview?location=${hotelLocation["lat"]},${hotelLocation["lon"]}&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU`
+                                document.querySelector(".HR-0".concat(i + 1 - count) + "-map").src = `https://www.google.com/maps/embed/v1/streetview?location=${hotelLocation["lat"]},${hotelLocation["lon"]}&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU`
                             }
                         }
                     }
                 })
                 .catch(err => {
                     console.error(err);
+                    // var hrefLink = "./index.html?error=true";
+                    // window.location.href = hrefLink;
                 });
         })
 
@@ -132,9 +135,18 @@ let weatherDataCall = function () {
                 })
                 .catch(err => {
                     console.error(err);
+                    // var hrefLink = "./index.html?error=true";
+                    // window.location.href = hrefLink;
                 });
         })
 }
+
+// clickReturnBtn.addEventListener("click", function (event) {
+//     event.preventDefault();
+
+//     var hrefLink = "./index.html";
+//     window.location.href = hrefLink;
+// })
 
 
 window.onload = function () {

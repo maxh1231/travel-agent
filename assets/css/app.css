@@ -6,44 +6,69 @@
     --fifth-color: #ffb703;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Crimson Text', serif;
+    font-family: 'Ubuntu', sans-serif;
+    box-sizing: border-box;
 }
 
 header {
     position: -webkit-sticky;
     position: sticky;
+    color: antiquewhite;
 }
 
 navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--second-color);
-    background-color: var(--first-color);
-    font-family: 'Crimson Text', serif;
+    color: antiquewhite;
+    background-color: var(--second-color);
+    
 }
-navbar h1 {
+ h1 {
     font-size: 50px;
-    font-family: 'Crimson Text', serif;
+    font-weight: 700;
+    color: antiquewhite;
+    font-family: 'Ubuntu', sans-serif;
+    
 }
 navbar ul {
     display: inline-flex;
 }
-navbar li {
+navbar ul li {
     padding: 20px;
+    font-size: 20px;
+    
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar-item {
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+.navbar-item:hover {
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: var(--second-color);
 }
 
 hero {
-    display: block;
+    
     text-align: center;
-    width: 100%;
+    
     height: auto;
-    background-color: var(--second-color);
-    color: antiquewhite;
+    
+    
 }
 hero h2 {
     font-size: 30px;
@@ -58,46 +83,51 @@ hero h3 {
     background-size: cover;
     border-bottom: 10px var(--first-color) solid;
     text-align: center;
+    align-items: center;
     padding-left: 25%;
     padding-right: 25%;
     padding-bottom: 25%;
+    justify-content: space-between;
 }
 .card-header {
+    display: block;
     font-size: 70px;
-    width: 100%;
-    color: var(--third-color);
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    color: var(--second-color);
     box-shadow: none;
-    margin-left: 20%;
-    margin-right: 20%;
     margin-bottom: 200px;
     padding-top: 50px;
     text-align: center;
-    justify-content: center;
+    font-style: italic;
 }
 .card-body {
-    background-color: var(--fourth-color);
+    background-color: var(--second-color);
+    max-width: 75%;
     color: antiquewhite;
     margin-left: 25%;
     margin-right: 25%;
-    border-radius: 20px;
-    margin-top: 30px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    
 }
 .input-group {
     padding: 5px;
 }
 
-#hotel-container {
+
+
+/* #hotel-results-container {
     display: flex;
     flex-direction: column;
     width: 50%;
     justify-content: center; 
     text-align: center;
-}
+} */
 
-#weather-container {
+#weather-results-container {
     display: flex;
-    flex-direction: column;
-    width: 50%;
     justify-content: center;
     text-align: center;
 
@@ -116,13 +146,15 @@ hero h3 {
 }
 .form-input {
     font-size: 20px;
-    border-radius: 50px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
 }
 
 #searchBtn {
     padding: 5px 15px;
-    background-color: var(--second-color);
-    color: antiquewhite;
+    background-color: white;
+    color: var(--second-color);
     border: 1px solid var(--second-color);
     border-radius: 5px;
     font-size: 1.25rem;
@@ -130,11 +162,30 @@ hero h3 {
 
 #searchBtn:hover {
     cursor: pointer;
+    background-color: var(--second-color);
+    border: 2px solid white;
+    color: white;
+}
+
+footer {
     background-color: var(--fourth-color);
-    border: 2px solid var(--second-color);
+    color: var(--first-color);
+}
+footer h3 {
+    font-size: 25px;
+}
+footer div {
+    font-size: 15px;
+}
+footer h3, footer div {
+    padding: 10px;
 }
 
 /* hotel.html styles */
+
+
+
+
 
 main {
     background-image: url("../image/Sunset_Freedom_Tower.jpg");
@@ -142,27 +193,31 @@ main {
 }
 
 .result-title {
-    color: var(--third-color);
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--second-color);
     text-align: center;
-    font-size: 3rem;
-    font-weight: 600;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    font-size: 4rem;
+    font-weight: 700;
+    padding: 25px 0px;
+    
 }
 
 #weather-results-container {
-    display: flex;
     justify-content: center;
-    
-    
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 #WR-01, #WR-02, #WR-03, #WR-04, #WR-05 {
     display: flex;
-    justify-content: space-between;
+    flex: 1;
+    justify-content: center;
     align-items: center;
     padding: 10px 25px;
-    margin: 0px 10px;
+    margin: 10px;
+    min-width: 257px;
+    max-width:326px;
     color: antiquewhite;
     background-color: var(--second-color);
     border: 1px solid var(--second-color);
@@ -188,19 +243,34 @@ main {
 
 .search-result-display {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
+.previous-search-display {
+    background-color: var(--third-color);
+}
+#previous-search-title {
+    font-size: 35px;
+}
+
 .hotel-result {
     display: flex; 
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
+    margin: 0 auto;
+}
+.hotel-result h4 {
+    font-size: 20px;
+    font-style: bold;
+    padding-bottom: 20px;
 }
 
 #HR-01, #HR-02, #HR-03, #HR-04, #HR-05 {
     padding: 10px 25px;
-    margin: 0px 10px;
+    margin: 10px;
     color: antiquewhite;
     background-color: var(--second-color);
     border: 1px solid var(--second-color);
@@ -212,14 +282,14 @@ main {
     height: 642px;
 }
 
-.HR-detail  {
+/* .HR-detail  {
     height: 100%;
-     display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     font-size: 1.25rem;
     text-align: right;
- }
+ } */
 
 iframe {
     width: 250px;
@@ -229,4 +299,37 @@ iframe {
 .HR-picture {
     width: 250px;
     height: 250px;
+    padding-top: 20px;
+}
+
+@media screen and (max-width: 980px) {
+    html,body {
+        width: 100%;
+        height:100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .card {
+        padding: 0;
+        align-items: center;
+    }
+    .card-body {
+        /* width: 100%; */
+        margin: auto;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    
+}
+
+@media screen and (max-width: 510px) {
+    .card-body {
+        margin: 0 auto;
+    }
+    .card-header {
+        padding-top: 0;
+    }
 }

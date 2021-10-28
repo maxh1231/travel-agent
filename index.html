@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="assets/css/app.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Qahiri&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
 
     <title>Travel Agent</title>
     
@@ -19,14 +20,25 @@
     <!-- NavBar -->
     <header>
         <navbar>
+            
             <h1>Travel Agent</h1>
+
+            <hero>
+                <!-- Page Title -->
+                <h2 class="page-Title">
+                    Hotel and Weather Search Engine
+                </h2>
+                <h3 class="page-Description">
+                    This search engine will help you to search available hotels and forecast weather for your trip.
+                </h3>
+            </hero>
 
             <ul class="navbar-List">
                 <li>
-                    <a href="#search-engine">Search</a>
+                    <a class="navbar-item" href="#search-engine">Search</a>
                 </li>
                 <li>
-                    <a href="#previous-search">Previous Searches</a>
+                    <a class="navbar-item" href="#previous-search">Previous Searches</a>
                 </li>
             </ul>
         </navbar>
@@ -35,15 +47,7 @@
     <!-- Main Body -->
     <main>
 
-        <hero>
-            <!-- Page Title -->
-            <h2 class="page-Title">
-                Hotel and Weather Search Engine
-            </h2>
-            <h3 class="page-Description">
-                This search engine will help you to search available hotels and forecast weather for your trip.
-            </h3>
-        </hero>
+        
 
         <!-- Top Part of the Main Page -->
         <!-- Search Input -->
@@ -53,10 +57,10 @@
                 <form action="hotel.html" id="user-form" class="card-body"> 
                     <div class="input-group">
                         <label class="form-label" for="location">Location</label>
-                        <input name="location" id="location" type="text" autofocus="true" class="form-input" placeholder="Paradise" />
+                        <input name="location" id="location" type="text" autofocus="true" class="form-input" placeholder=" Paradise" />
                     </div>
                     <div class="input-group">
-                        <button type="submit" class="btn" id="searchBtn">To the Journey</button>
+                        <button type="submit" class="btn button is-warning is-light" id="searchBtn" value="Reset">To the Journey</button>
                     </div>
                 </form>
             </div>
