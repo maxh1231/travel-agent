@@ -173,7 +173,7 @@ hero h3 {
 }
 
 footer {
-    background-color: var(--fourth-color);
+    background-color: var(--first-color);
     color: var(--first-color);
 }
 footer h3 {
@@ -252,6 +252,7 @@ main {
 
 .previous-search-display {
     background-color: var(--third-color);
+    padding-bottom: 10px;;
 }
 #previous-search-title {
     text-align: center;
@@ -318,6 +319,13 @@ iframe {
     width: 250px;
     height: 250px;
     padding-top: 20px;
+}
+
+#notFoundItems {
+    height: 800px;
+}
+.result-title {
+    padding-top: 100px;
 }
 
 @media screen and (max-width: 980px) {
