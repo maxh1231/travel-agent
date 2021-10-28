@@ -146,4 +146,3 @@ window.onload = function () {
     weatherDataCall();
     hotelDataCall();
 }
-

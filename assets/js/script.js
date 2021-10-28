@@ -211,4 +211,3 @@ PSDcontainer[0].addEventListener("click", function(event) {
 })
 
 loadIndexPage();
-
