@@ -173,7 +173,7 @@ hero h3 {
 }
 
 footer {
-    background-color: var(--first-color);
+    background-color: var(--fourth-color);
     color: var(--first-color);
 }
 footer h3 {
@@ -255,16 +255,11 @@ main {
 
 .previous-search-display {
     background-color: var(--third-color);
-    padding-bottom: 10px;
-}
-.PSD-container {
-    background-color: var(--third-color);
 }
 
 #previous-search-title {
     text-align: center;
-    
-
+    font-size: 40px;
     margin-left: 25%;
     margin-right: 25%;
     border-radius: 15px;

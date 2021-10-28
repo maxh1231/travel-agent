@@ -1,6 +1,6 @@
 var apiQuery = localStorage.getItem(localStorage.key(0));
 var userInput = new URLSearchParams(window.location.search).get("location");
-var clickReturnBtn = document.getElementById("returnBtn");
+var mainEl = document.getElementById("mainDisplay");
 
 var city_destinationId;
 
@@ -53,8 +53,6 @@ let hotelDataCall = function () {
                 })
                 .catch(err => {
                     console.error(err);
-                    //var hrefLink = "./index.html?error=true";
-                    //window.location.href = hrefLink;
                 });
         })
 
@@ -75,6 +73,9 @@ let weatherDataCall = function () {
         .then(response => response.json())
         .then(function (geoData) {
             console.log(geoData);
+            //if (geoData.length == 0) {
+                //console.log("I got you!");
+            // else {
             var lat = geoData[0].lat;
             var lon = geoData[0].lon;
 
@@ -136,23 +137,12 @@ let weatherDataCall = function () {
                 })
                 .catch(err => {
                     console.error(err);
-                    //var hrefLink = "./index.html?error=true";
-                    //window.location.href = hrefLink;
                 });
+            //}
         })
 }
-
-
-// clickReturnBtn.addEventListener("click", function (event) {
-//    event.preventDefault();
-//
-//    var hrefLink = "./index.html";
-//    window.location.href = hrefLink;
-// }) 
-
 
 window.onload = function () {
     weatherDataCall();
     hotelDataCall();
 }
-
