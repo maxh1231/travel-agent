@@ -177,7 +177,9 @@ PSDcontainer[0].addEventListener("click", function(event) {
 	var targetID = event.target.id;
 	var targetClass = event.target.className;
 
-	if (targetClass == "btn") {
+	targetClass = targetClass.split(" ");
+
+	if (targetClass[0] == "btn") {
 		// If it is the button, break down the ID for more info
 		var targetIDInfo = targetID.split("-");
 		var previousSearch = localStorage.getItem("previousSearch");
