@@ -6,9 +6,7 @@
     --fifth-color: #ffb703;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+
 
 * {
     margin: 0;
@@ -176,7 +174,7 @@ hero h3 {
 }
 
 footer {
-    background-color: var(--first-color);
+    background-color: var(--fourth-color);
     color: var(--first-color);
 }
 footer h3 {
@@ -258,14 +256,10 @@ main {
 
 .previous-search-display {
     background-color: var(--third-color);
-    padding-bottom: 10px;
-}
-.PSD-container {
-    background-color: var(--third-color);
 }
 #previous-search-title {
     text-align: center;
-    font-size: 70px;
+    font-size: 40px;
 }
 
 .PSD-item {
