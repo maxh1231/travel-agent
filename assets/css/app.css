@@ -29,11 +29,12 @@ navbar {
     background-color: var(--second-color);
     
 }
- h1 {
+navbar h1 {
     font-size: 50px;
     font-weight: 700;
     color: antiquewhite;
     font-family: 'Ubuntu', sans-serif;
+    margin-left: 20px;
     
 }
 navbar ul {
@@ -272,8 +273,8 @@ main {
 .PSD-detail {
     font-size: 25px;
 }
-.is-danger {
-    margin: 5px;
+.is-danger, .is-link {
+    margin: 5px 20px 10px 20px;
 }
 
 .hotel-result {
