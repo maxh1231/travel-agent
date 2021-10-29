@@ -37,7 +37,7 @@ let hotelDataCall = function () {
                     returnHomeButton.textContent = "Return Home";
                     var containerEl = document.createElement("div");
                     containerEl.setAttribute("id", "notFoundItems");
-                    containerEl.setAttribute("style","text-align : center");
+                    containerEl.setAttribute("style", "text-align : center");
                     containerEl.appendChild(errorInputMessage);
                     containerEl.appendChild(returnHomeButton);
                     mainEl.textContent = "";
@@ -45,7 +45,7 @@ let hotelDataCall = function () {
                 }
                 localStorage.setItem("newSearch", "");
             } else {
-            // ^^^  LocationNotFoundCode  ^^^
+                // ^^^  LocationNotFoundCode  ^^^
                 var city_destinationId = hotelData.suggestions[0].entities[0].destinationId
                 fetch(`https://hotels4.p.rapidapi.com/properties/list?destinationId=${city_destinationId}&pageNumber=1&pageSize=10&checkIn=2021-10-30&checkOut=2021-10-31&adults1=1&sortOrder=PRICE&locale=en_US&currency=USD`, {
                     "method": "GET",
@@ -81,7 +81,7 @@ let hotelDataCall = function () {
                     .catch(err => {
                         console.error(err);
                     });
-            // vvv  LocationNotFoundCode  vvv        
+                // vvv  LocationNotFoundCode  vvv        
             }
             // ^^^  LocationNotFoundCode  ^^^
         })
@@ -97,7 +97,7 @@ let hotelDataCall = function () {
 let weatherDataCall = function () {
 
 
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${userInput}&limit=5&appid=16504850b1a264a95e1797ff5a4e056b`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${userInput}&limit=5&appid=16504850b1a264a95e1797ff5a4e056b`)
 
 
         .then(response => response.json())
@@ -119,7 +119,7 @@ let weatherDataCall = function () {
                     returnHomeButton.textContent = "Return Home";
                     var containerEl = document.createElement("div");
                     containerEl.setAttribute("id", "notFoundItems");
-                    containerEl.setAttribute("style","text-align : center");
+                    containerEl.setAttribute("style", "text-align : center");
                     containerEl.appendChild(errorInputMessage);
                     containerEl.appendChild(returnHomeButton);
                     mainEl.textContent = "";
@@ -127,7 +127,7 @@ let weatherDataCall = function () {
                 }
                 localStorage.setItem("newSearch", "");
             } else {
-            // ^^^  LocationNotFoundCode  ^^^    
+                // ^^^  LocationNotFoundCode  ^^^    
                 var lat = geoData[0].lat;
                 var lon = geoData[0].lon;
 
@@ -190,14 +190,14 @@ let weatherDataCall = function () {
                     .catch(err => {
                         console.error(err);
                     });
-            // vvv  LocationNotFoundCode  vvv
+                // vvv  LocationNotFoundCode  vvv
             }
             // ^^^  LocationNotFoundCode  ^^^
         })
 }
 
 // vvv  LocationNotFoundCode  vvv
-mainEl.addEventListener("click", function(event) {
+mainEl.addEventListener("click", function (event) {
     if (event.target.id == "returnBtn") {
         window.location.href = "./index.html";
     }
