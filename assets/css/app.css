@@ -84,7 +84,7 @@ hero h3 {
 
 .card {
     height: auto;
-    background-image: url("../image/Sunset_Freedom_Tower.jpg");
+    background-image: url("../image/Sunset-Freedom-Tower.jpg");
     background-size: cover;
     border-bottom: 10px var(--first-color) solid;
     text-align: center;
@@ -190,7 +190,7 @@ footer h3, footer div {
 
 
 main {
-    background-image: url("../image/Sunset_Freedom_Tower.jpg");
+    background-image: url("../image/Sunset-Freedom-Tower.jpg");
     background-size: cover;
 }
 
