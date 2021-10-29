@@ -254,10 +254,13 @@ main {
     background-color: var(--third-color);
     padding-bottom: 10px;;
 }
-
 #previous-search-title {
     text-align: center;
     font-size: 40px;
+}
+
+.PSD-item {
+    margin-top: 10px;
     margin-left: 25%;
     margin-right: 25%;
     border-radius: 15px;
