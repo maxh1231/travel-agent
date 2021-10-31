@@ -32,7 +32,7 @@ let hotelDataCall = function () {
                     var resultsLength = hotelPropertiesData.data.body.searchResults.results.length
                     var count = 0;
                     for (let i = 0; i <= resultsLength; i++) {
-                        if ((document.querySelector(".HR-0".concat(i + 1 - count) + "-price").textContent) === null) {
+                        if ((document.querySelector(".HR-0".concat(i + 1 - count) + "-price")) === null) {
                             return;
                         } else {
                             if (hotelPropertiesData.data.body.searchResults.results[i].address.streetAddress === undefined) {
