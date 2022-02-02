@@ -10,19 +10,9 @@
     <title>Travel Agent</title>
 </head>
 <body>
-    <!-- NavBar -->
     <header>
         <navbar>
             <h1>Travel Agent</h1>
-            <hero>
-                <!-- Page Title -->
-                <h2 class="page-Title">
-                    Hotel and Weather Search Engine
-                </h2>
-                <h3 class="page-Description">
-                    This search engine will help you to search available hotels and forecast weather for your trip.
-                </h3>
-            </hero>
             <ul class="navbar-List">
                 <li>
                     <a class="navbar-item" href="#search-engine">Search</a>
@@ -32,30 +22,21 @@
                 </li>
             </ul>
         </navbar>
-        <div class="mobile-description">
-            <h2 class="page-Title">
-                Hotel and Weather Search Engine
-            </h2>
-            <h3 class="page-Description">
-                This search engine will help you to search available hotels and forecast weather for your trip.
-            </h3>
-        </div>
     </header>
-    <main>
-        <div id="search-engine" class="search-area">
-            <div class="card">
-                <h2 class="card-header text-uppercase">Search Your Paradise</h2>
-                <form action="hotel.html" id="user-form" class="card-body"> 
-                    <div class="input-group">
-                        <label class="form-label" for="location">Location</label>
-                        <input name="location" id="location" type="text" autofocus="true" class="form-input" placeholder=" Paradise" />
-                    </div>
-                    <div class="input-group">
-                        <button type="submit" class="btn button is-warning is-light" id="searchBtn" value="Reset">To the Journey</button>
-                    </div>
+    <section class="search-container">
+        <div id="search-engine" class="search-card">
+            <div>
+                <h2 class="search-header">Search Your Next Vacation</h2>
+            </div>
+            <div>
+                <form action="hotel.html" id="user-form" class="search-form"> 
+                        <input name="location" id="location" type="text" autofocus="true" class="form-input" placeholder="Location" />
+                        <button type="submit" class="" id="searchBtn" value="Reset">Submit</button>
                 </form>
             </div>
         </div>
+    </section>
+    <section>
         <div id="previous-search" class="previous-search-display">
             <h2 id="previous-search-title">
                 Previous Searches
@@ -63,7 +44,7 @@
             <div class="PSD-container">
             </div>
         </div>
-    </main>
+    </section>
     <footer>
         <h3>Hardworking Product From Group 2</h3>
         <div>
@@ -72,5 +53,4 @@
     </footer>
     <script src="assets/js/script.js"></script>   
 </body>
-
 </html>
