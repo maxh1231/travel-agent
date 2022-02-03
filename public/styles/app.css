@@ -468,6 +468,58 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-sepia:  ;
 }
 
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.bg-\[url\(\'\/assets\/image\/Sunset-Freedom-Tower\.jpg\'\)\] {
+  background-image: url('/assets/image/Sunset-Freedom-Tower.jpg');
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 :root {
   --first-color: #fd9e02;
   --second-color: #126782;
@@ -476,3 +528,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   --fifth-color: #ffb703;
 }
 
+* {
+  font-family: 'Ubuntu', sans-serif;
+  box-sizing: border-box;
+}

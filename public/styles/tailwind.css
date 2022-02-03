@@ -10,3 +10,7 @@
     --fifth-color: #ffb703;
 }
 
+* {
+    font-family: 'Ubuntu', sans-serif;
+    box-sizing: border-box;
+}
