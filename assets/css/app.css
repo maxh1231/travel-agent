@@ -90,6 +90,26 @@ a {
 }
 
 
+
+.form-input {
+    background: none;
+    outline: 3px solid var(--second-color);
+    border: none;
+    width: 200px;
+    height: 50px;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.formBtn {
+    background-color: transparent;
+    font-size: 1.5rem;
+    width: 100px;
+    margin: auto;
+    padding: 15px 60px;
+}
+
+
 #weather-results-container {
     display: flex;
     justify-content: center;
