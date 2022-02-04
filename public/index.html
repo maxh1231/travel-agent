@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Qahiri&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
     <title>Travel Agent</title>
 </head>
-<body class="bg-[url('/assets/image/Sunset-Freedom-Tower.jpg')] bg-cover h-screen">
+<body class="bg-[url('/assets/image/Sunset-Freedom-Tower.jpg')] bg-cover h-screen opacity-80">
     <header class="">
         <navbar class="sticky mt-2 pb-4 flex flex-row justify-between border-b-2 border-black">
             <h1 class="text-5xl mx-4">Travel Agent</h1>
@@ -25,30 +25,25 @@
     <section class=" h-3/4 flex flex-col justify-center items-center">
         <div id="search-engine" class="">
             <div>
-                <h2 class="text-2xl">Search Your Next Vacation</h2>
+                <h2 class="text-3xl">Search Your Next Vacation</h2>
             </div>
             <div class="">
                 <form action="hotel.html" id="user-form" class="flex flex-col"> 
                         <input class="my-2 pl-2 bg-transparent border-2 border-black focus:outline-none placeholder:text-black" name="location" id="location" type="text" autofocus="true"  placeholder="Location" />
-                        <button type="submit" class="my-2 mx-auto border-2 border-black w-1/2" id="searchBtn" value="Reset">Submit</button>
+                        <button type="submit" class="my-2 mx-auto border-2 border-black w-1/4" id="searchBtn" value="Reset">Submit</button>
                 </form>
             </div>
         </div>
     </section>
-    <section>
-        <div id="previous-search" class="previous-search-display">
-            <h2 id="previous-search-title">
+    <section class="">
+        <div id="previous-search" class="text-center">
+            <h2 id="previous-search-title" class="text-3xl text-white">
                 Previous Searches
             </h2>
-            <div class="PSD-container">
-            </div>
+            <div class="PSD-container flex flex col justify-center"></div>
         </div>
     </section>
     <footer>
-        <h3>Hardworking Product From Group 2</h3>
-        <div>
-            &copy; Brett Howard, Jeffrey Banh, Max Humpherys, Calvin Yan
-        </div>
     </footer>
     <script src="/js/script.js"></script>   
 </body>
