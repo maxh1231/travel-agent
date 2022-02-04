@@ -109,11 +109,11 @@ var loadPreviousSearch = function () {
 			displayanswer.setAttribute("class", "display-answer text-xl text-white pl-1");
 			displayanswer.textContent = previousSearchRecord[i];
 			searchBtn.setAttribute("type", "button");
-			searchBtn.setAttribute("class", "btn button is-link text-base text-white mr-1 border-2 border-white px-2");
+			searchBtn.setAttribute("class", "btn button is-link text-base text-white mr-1 border-2 border-white px-2 hover:border-[#2dc653] hover:text-[#2dc653]");
 			searchBtn.setAttribute("id", searchBtnID);
 			searchBtn.textContent = "Search Again";
 			deleteBtn.setAttribute("type", "button");
-			deleteBtn.setAttribute("class", "btn button is-danger text-base text-white ml-1 border-2 border-white px-2");
+			deleteBtn.setAttribute("class", "btn button is-danger text-base text-white ml-1 border-2 border-white px-2 hover:border-[#db222a] hover:text-[#db222a]");
 			deleteBtn.setAttribute("id", deleteBtnID);
 			deleteBtn.textContent = "Delete Record";
 			PSDbuttons.setAttribute("class", "mt-2")

@@ -493,6 +493,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: auto;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -607,6 +611,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 2.25rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -620,10 +629,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.opacity-80 {
-  opacity: 0.8;
 }
 
 :root {
@@ -654,7 +659,57 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+.hover\:border-white:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.hover\:border-\[\#2dc653\]:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(45 198 83 / var(--tw-border-opacity));
+}
+
+.hover\:border-\[\#db222a\]:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(219 34 42 / var(--tw-border-opacity));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:text-\[\#2dc653\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(45 198 83 / var(--tw-text-opacity));
+}
+
+.hover\:text-\[\#db222a\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(219 34 42 / var(--tw-text-opacity));
+}
+
+.focus\:border-white:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.focus\:placeholder\:text-white:focus::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.focus\:placeholder\:text-white:focus:-ms-input-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.focus\:placeholder\:text-white:focus::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
