@@ -3,14 +3,12 @@ var userInput = new URLSearchParams(window.location.search).get("location");
 // vvv  LocationNotFoundCode  vvv
 var mainEl = document.getElementById("mainDisplay");
 // ^^^  LocationNotFoundCode  ^^^
-
 var city_destinationId;
 
 document.cookie = "SameSite=Lax";
 
 // fetches destination id from Hotels API
 let hotelDataCall = function () {
-
     fetch(`https://hotels4.p.rapidapi.com/locations/search?query=${userInput}&locale=en_US`, {
         "method": "GET",
         "headers": {
@@ -18,7 +16,6 @@ let hotelDataCall = function () {
             "x-rapidapi-key": "26aa5aaa64msh7c71403c8404b50p1f70d8jsn250c3dfeb42e"
         }
     })
-
         .then(response => response.json())
         .then(function (hotelData) {
             // vvv  LocationNotFoundCode  vvv
@@ -66,10 +63,8 @@ let hotelDataCall = function () {
                                 if (hotelPropertiesData.data.body.searchResults.results[i].address.streetAddress === undefined) {
                                     count++;
                                 } else {
-
                                     document.querySelector(".HR-0".concat(i + 1 - count) + "-price").textContent = hotelPropertiesData.data.body.searchResults.results[i].ratePlan.price.current
                                     document.querySelector(".HR-0".concat(i + 1 - count) + "-rating").textContent = hotelPropertiesData.data.body.searchResults.results[i].starRating + " star"
-
                                     document.querySelector(".HR-0".concat(i + 1 - count) + "-name").textContent = hotelPropertiesData.data.body.searchResults.results[i].name
                                     var hotelLocation = hotelPropertiesData.data.body.searchResults.results[i].coordinate
                                     document.querySelector(".HR-0".concat(i + 1 - count) + "-map").src = `https://www.google.com/maps/embed/v1/streetview?location=${hotelLocation["lat"]},${hotelLocation["lon"]}&key=AIzaSyAD1j26SQoCLmAFKABhY_QKa25HtuYWdhU`
@@ -80,25 +75,13 @@ let hotelDataCall = function () {
                     .catch(err => {
                         console.error(err);
                     });
-                // vvv  LocationNotFoundCode  vvv        
             }
-            // ^^^  LocationNotFoundCode  ^^^
         })
-
 }
-
-
-
-
-
 
 // weather data fetch
 let weatherDataCall = function () {
-
-
     fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${userInput}&limit=5&appid=16504850b1a264a95e1797ff5a4e056b`)
-
-
         .then(response => response.json())
         .then(function (geoData) {
             //console.log(geoData);
@@ -130,7 +113,6 @@ let weatherDataCall = function () {
                 var lat = geoData[0].lat;
                 var lon = geoData[0].lon;
 
-
                 fetch(`https://aerisweather1.p.rapidapi.com/forecasts/${lat},${lon}`, {
                     "method": "GET",
                     "headers": {
@@ -141,7 +123,6 @@ let weatherDataCall = function () {
                     .then(response => response.json())
                     .then(function (weatherData) {
                         console.log(weatherData);
-
                         // Day 1
                         document.getElementById("WR-01-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[0].icon;
                         document.getElementById("WR-01-date").textContent = moment().format("M/DD/YYYY");
@@ -149,7 +130,6 @@ let weatherDataCall = function () {
                         document.getElementById("WR-01-wind").textContent = weatherData.response[0].periods[0].windSpeedMPH + " MPH"
                         document.getElementById("WR-01-humidity").textContent = weatherData.response[0].periods[0].humidity + " %"
                         document.getElementById("WR-01-index").textContent = weatherData.response[0].periods[0].uvi + " UVI"
-
                         // Day 2
                         document.getElementById("WR-02-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[1].icon;
                         document.getElementById("WR-02-date").textContent = moment().add(1, 'days').format("M/DD/YYYY");
@@ -157,7 +137,6 @@ let weatherDataCall = function () {
                         document.getElementById("WR-02-wind").textContent = weatherData.response[0].periods[1].windSpeedMPH + " MPH"
                         document.getElementById("WR-02-humidity").textContent = weatherData.response[0].periods[1].humidity + " %"
                         document.getElementById("WR-02-index").textContent = weatherData.response[0].periods[1].uvi + " UVI"
-
                         // Day 3
                         document.getElementById("WR-03-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[2].icon;
                         document.getElementById("WR-03-date").textContent = moment().add(2, 'days').format("M/DD/YYYY");
@@ -165,7 +144,6 @@ let weatherDataCall = function () {
                         document.getElementById("WR-03-wind").textContent = weatherData.response[0].periods[2].windSpeedMPH + " MPH"
                         document.getElementById("WR-03-humidity").textContent = weatherData.response[0].periods[2].humidity + " %"
                         document.getElementById("WR-03-index").textContent = weatherData.response[0].periods[2].uvi + " UVI"
-
                         // Day 4
                         document.getElementById("WR-04-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[3].icon;
                         document.getElementById("WR-04-date").textContent = moment().add(3, 'days').format("M/DD/YYYY");
@@ -173,7 +151,6 @@ let weatherDataCall = function () {
                         document.getElementById("WR-04-wind").textContent = weatherData.response[0].periods[3].windSpeedMPH + " MPH"
                         document.getElementById("WR-04-humidity").textContent = weatherData.response[0].periods[3].humidity + " %"
                         document.getElementById("WR-04-index").textContent = weatherData.response[0].periods[3].uvi + " UVI"
-
                         // Day 5
                         document.getElementById("WR-05-picture").src = "assets/image/weather-icons/" + weatherData.response[0].periods[4].icon;
                         document.getElementById("WR-05-date").textContent = moment().add(4, 'days').format("M/DD/YYYY");
@@ -181,20 +158,13 @@ let weatherDataCall = function () {
                         document.getElementById("WR-05-wind").textContent = weatherData.response[0].periods[4].windSpeedMPH + " MPH"
                         document.getElementById("WR-05-humidity").textContent = weatherData.response[0].periods[4].humidity + " %"
                         document.getElementById("WR-05-index").textContent = weatherData.response[0].periods[4].uvi + " UVI"
-
-
-
-
                     })
                     .catch(err => {
                         console.error(err);
                     });
-                // vvv  LocationNotFoundCode  vvv
             }
-            // ^^^  LocationNotFoundCode  ^^^
         })
 }
-
 // vvv  LocationNotFoundCode  vvv
 mainEl.addEventListener("click", function (event) {
     if (event.target.id == "returnBtn") {
@@ -202,7 +172,6 @@ mainEl.addEventListener("click", function (event) {
     }
 })
 // ^^^  LocationNotFoundCode  ^^^
-
 window.onload = function () {
     weatherDataCall();
     hotelDataCall();
