@@ -21,7 +21,7 @@ var updatePreviousSearch = function () {
 		} else {
 			var errorInputMessage = document.createElement("h2");
 			errorInputMessage.setAttribute("id", "errorMessage");
-			errorInputMessage.setAttribute("style", "color:red; font-weight:bold;");
+			errorInputMessage.setAttribute("class", "text-red font-bold text-center;");
 			errorInputMessage.textContent = newSearchItem + " cannot be FOUND!";
 			userformEl.appendChild(errorInputMessage);
 		}
@@ -168,7 +168,7 @@ submitSearchBtn.addEventListener("click", function (event) {
 		} else {
 			var errorInputMessage = document.createElement("h2");
 			errorInputMessage.setAttribute("id", "errorMessage");
-			errorInputMessage.setAttribute("style", "color:red; font-weight:bold;");
+			errorInputMessage.setAttribute("class", "text-red-600 font-bold text-center");
 			errorInputMessage.textContent = "Location cannot be EMPTY!";
 			userformEl.appendChild(errorInputMessage);
 		}

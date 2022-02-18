@@ -8,58 +8,36 @@
 
     <!-- CSS -->
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="assets/css/app.css" />
+    <link rel="stylesheet" href="styles/app.css" />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Qahiri&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
 
     <title>Travel Agent - Search Result</title>
     
 </head>
 
-<body>
-    <!-- NavBar -->
-    <header>
-        <navbar>
-            
+<body class="bg-[url('/assets/image/Sunset-Freedom-Tower.jpg')] bg-cover h-screen">
+    <header >
+        <navbar class="sticky mt-4 pb-4 flex flex-row justify-between border-b-2 border-black">
             <a class="logo" href="index.html">
-                <h1>Travel Agent</h1>
+                <h1 class="text-5xl mx-4">Travel Agent</h1>
             </a>
-
-            <hero>
-                <!-- Page Title -->
-                <h2 class="page-Title">
-                    Hotel and Weather Search Engine
-                </h2>
-                <h3 class="page-Description">
-                    This search engine will help you to search available hotels and forecast weather for your trip.
-                </h3>
-            </hero>
-
-            <ul class="navbar-List">
+            <ul class="flex flex-row items-center mx-5">
                 <li>
-                    <a class="navbar-item" href="#hotel-results-container">Available Hotels</a>
+                    <a class="text-2xl mx-4 hover:text-white" href="#hotel-results-container">Available Hotels</a>
                 </li>
                 <li>
-                    <a class="navbar-item" href="#weather-results-container">Weather Forecast</a>
+                    <a class="text-2xl mx-4 hover:text-white" href="#weather-results-container">Weather Forecast</a>
                 </li>
             </ul>
         </navbar>
     </header>
 
-    <!-- Main Body -->
+
     <main id="mainDisplay">
-        <!-- Page title -->
-        <hero>
-
-        </hero>
-
-        <!-- Display Weather Result on the Right -->
-
-       <!-- section title -->
             
        <h3 class="result-title">Weather Forecast</h3>
        
-        <div id="weather-results-container" class="col-6">
+        <div id="weather-results-container" class="">
             
             
             <!-- First Day Weather -->
@@ -262,7 +240,7 @@
     <!-- JS -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="assets/js/hotel.js"></script>
+    <script src="js/hotel.js"></script>
 </body>
 
 </html>
