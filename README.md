@@ -2,7 +2,7 @@
 
 ## Description 
 
-An app for to help users plan their upcoming trips by providing hotel and weather information in a given area.
+An app to help users plan their upcoming trips by providing hotel and weather information in a given area.
 
 ## Technologies used 
 
